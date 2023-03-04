@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private float m_lateralInput;
     private float m_verticalInput;
 
-    private float m_horizontalSpeed;
-    private float m_lateralSpeed;
-    private float m_verticalSpeed;
+    [SerializeField] private float m_horizontalSpeed;
+    [SerializeField] private float m_lateralSpeed;
+    [SerializeField] private float m_verticalSpeed;
 
     private float m_moveHorizontal;
     private float m_moveLateral;
@@ -60,9 +60,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        m_rigidbody.AddForce(10f * m_horizontalSpeed * Orientation.forward.normalized, ForceMode.Force);
-        m_rigidbody.AddForce(10f * m_lateralSpeed * Orientation.right.normalized, ForceMode.Force);
-        m_rigidbody.AddForce(10f * m_verticalSpeed * Orientation.up.normalized, ForceMode.Force);
+        m_rigidbody.AddForce(/*10f **/ m_horizontalSpeed * Orientation.forward.normalized, ForceMode.Force);
+        m_rigidbody.AddForce(/*10f **/ m_lateralSpeed * Orientation.right.normalized, ForceMode.Force);
+        m_rigidbody.AddForce(/*10f **/ m_verticalSpeed * Orientation.up.normalized, ForceMode.Force);
     }
 
     private void SetSpeed()
@@ -70,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
         m_horizontalSpeed = Mathf.Lerp(m_horizontalSpeed, MaxSpeedHorizontal * m_horizontalInput, HorizontalAcceleration * Time.deltaTime);
         m_lateralSpeed = Mathf.Lerp(m_lateralSpeed, MaxSpeedLateral * m_lateralInput, LateralAcceleration * Time.deltaTime);
         m_verticalSpeed = Mathf.Lerp(m_verticalSpeed, MaxSpeedVertical * m_verticalInput, VerticalAcceleration * Time.deltaTime);
+
+        float[] speeds = { Mathf.Abs(m_horizontalSpeed), Mathf.Abs(m_lateralSpeed), Mathf.Abs(m_verticalSpeed) };
+        if (m_rigidbody.velocity.magnitude > Mathf.Max(speeds)) m_rigidbody.velocity = m_rigidbody.velocity.normalized * Mathf.Max(speeds);
 
         //if (m_horizontalInput == 0) m_horizontalSpeed = Mathf.Lerp(m_horizontalSpeed, 0f, Friction * Time.deltaTime);
         //if (m_lateralInput == 0) m_lateralSpeed = Mathf.Lerp(m_lateralSpeed, 0f, Friction * Time.deltaTime);
