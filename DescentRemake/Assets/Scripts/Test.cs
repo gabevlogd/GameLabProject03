@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class Test : MonoBehaviour
 {
     #region Public Params:
     [Header("Speeds")]
@@ -116,12 +115,13 @@ public class PlayerMovement : MonoBehaviour
 
         //if (!Mathf.Approximately(m_rollInput, 0))
         //{
-        //adds roll rotation
-        newOrientation = newOrientation * Quaternion.Euler(0f, 0f, -m_rollSpeed * Time.deltaTime);
-        //Saves the new reference plane, according to the player's input.
-        m_planeNormal = newOrientation * Vector3.up;
+            //adds roll rotation
+            newOrientation = newOrientation * Quaternion.Euler(0f, 0f, -m_rollSpeed * Time.deltaTime);
+            //Saves the new reference plane, according to the player's input.
+            m_planeNormal = newOrientation * Vector3.up;
         //}
 
         transform.rotation = newOrientation;
     }
+
 }
