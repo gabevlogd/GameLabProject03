@@ -7,18 +7,18 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Public Params:
     [Header("Speeds")]
-    public float MaxSpeedHorizontal;
-    public float MaxSpeedLateral;
-    public float MaxSpeedVertical;
-    public float MaxSpeedRoll;
+    public float m_MaxSpeedHorizontal;
+    public float m_MaxSpeedLateral;
+    public float m_MaxSpeedVertical;
+    public float m_MaxSpeedRoll;
     [Header("Accelerations")]
-    public float HorizontalAcceleration;
-    public float LateralAcceleration;
-    public float VerticalAcceleration;
-    public float RollAcceleration;
+    public float m_HorizontalAcceleration;
+    public float m_LateralAcceleration;
+    public float m_VerticalAcceleration;
+    public float m_RollAcceleration;
     [Header("Mouse Sensitivity")]
-    public float SensX;
-    public float SensY;
+    public float m_SensX;
+    public float m_SensY;
     #endregion
     #region Private Params:
     private float m_horizontalInput;
@@ -72,18 +72,18 @@ public class PlayerMovement : MonoBehaviour
         m_verticalInput = Input.GetAxisRaw("Vertical");
         m_rollInput = Input.GetAxisRaw("Roll");
 
-        m_yRotation = Input.GetAxisRaw("Mouse X") * SensX * Time.deltaTime;
-        m_xRotation = -Input.GetAxisRaw("Mouse Y") * SensY * Time.deltaTime;
+        m_yRotation = Input.GetAxisRaw("Mouse X") * m_SensX * Time.deltaTime;
+        m_xRotation = -Input.GetAxisRaw("Mouse Y") * m_SensY * Time.deltaTime;
     }
     /// <summary>
     /// Manages the translation speeds on the three axes and the roll speed
     /// </summary>
     private void SetSpeed()
     {
-        m_horizontalSpeed = Mathf.Lerp(m_horizontalSpeed, MaxSpeedHorizontal * m_horizontalInput, HorizontalAcceleration * Time.deltaTime);
-        m_lateralSpeed = Mathf.Lerp(m_lateralSpeed, MaxSpeedLateral * m_lateralInput, LateralAcceleration * Time.deltaTime);
-        m_verticalSpeed = Mathf.Lerp(m_verticalSpeed, MaxSpeedVertical * m_verticalInput, VerticalAcceleration * Time.deltaTime);
-        m_rollSpeed = Mathf.Lerp(m_rollSpeed, MaxSpeedRoll * m_rollInput, RollAcceleration * Time.deltaTime);
+        m_horizontalSpeed = Mathf.Lerp(m_horizontalSpeed, m_MaxSpeedHorizontal * m_horizontalInput, m_HorizontalAcceleration * Time.deltaTime);
+        m_lateralSpeed = Mathf.Lerp(m_lateralSpeed, m_MaxSpeedLateral * m_lateralInput, m_LateralAcceleration * Time.deltaTime);
+        m_verticalSpeed = Mathf.Lerp(m_verticalSpeed, m_MaxSpeedVertical * m_verticalInput, m_VerticalAcceleration * Time.deltaTime);
+        m_rollSpeed = Mathf.Lerp(m_rollSpeed, m_MaxSpeedRoll * m_rollInput, m_RollAcceleration * Time.deltaTime);
 
         float[] speeds = { Mathf.Abs(m_horizontalSpeed), Mathf.Abs(m_lateralSpeed), Mathf.Abs(m_verticalSpeed) };
         if (m_rigidbody.velocity.magnitude > Mathf.Max(speeds)) m_rigidbody.velocity = m_rigidbody.velocity.normalized * Mathf.Max(speeds);
