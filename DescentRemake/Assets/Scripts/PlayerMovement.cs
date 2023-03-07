@@ -39,10 +39,12 @@ public class PlayerMovement : MonoBehaviour
     /// normal of the reference plane for calculating rotations
     /// </summary>
     private Vector3 m_planeNormal;
+    private Vector3 m_mousePosition;
     #endregion
 
     private void Start()
     {
+        m_mousePosition = Input.mousePosition;
         m_planeNormal = transform.up;
         m_rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -54,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         SetSpeed();
         RotatePlayer();
+        //if (IsMoving()) Debug.Log("Moving");
+        //else Debug.Log("NotMoving");
     }
 
     private void FixedUpdate()
@@ -72,8 +76,8 @@ public class PlayerMovement : MonoBehaviour
         m_verticalInput = Input.GetAxisRaw("Vertical");
         m_rollInput = Input.GetAxisRaw("Roll");
 
-        m_yRotation = Input.GetAxisRaw("Mouse X") * m_SensX * Time.deltaTime;
-        m_xRotation = -Input.GetAxisRaw("Mouse Y") * m_SensY * Time.deltaTime;
+        m_yRotation = Input.GetAxisRaw("Mouse X") * m_SensY * Time.deltaTime;
+        m_xRotation = -Input.GetAxisRaw("Mouse Y") * m_SensX * Time.deltaTime;
     }
     /// <summary>
     /// Manages the translation speeds on the three axes and the roll speed
@@ -102,8 +106,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void RotatePlayer()
     {
-        //calculates rotations on x and y axes and saves them in newForward (i.e. calculates the new transform.forward based on player's input)
-        Quaternion yawPitch = transform.rotation * Quaternion.Euler(m_xRotation, m_yRotation, 0f);
+       //calculates rotations on x and y axes and saves them in newForward (i.e. calculates the new transform.forward based on player's input)
+       Quaternion yawPitch = transform.rotation * Quaternion.Euler(m_xRotation, m_yRotation, 0f);
         Vector3 newForward = yawPitch * Vector3.forward;
 
         //calculates the new local green axis of the player (transform.up) with respect to the normal of the reference plane (m_planeNormal)
@@ -114,14 +118,31 @@ public class PlayerMovement : MonoBehaviour
         //new orientation to assign to the player (i.e. new transform.forward and transform.up based on player's input)
         Quaternion newOrientation = Quaternion.LookRotation(newForward, targetUp);
 
-        //if (!Mathf.Approximately(m_rollInput, 0))
-        //{
         //adds roll rotation
         newOrientation = newOrientation * Quaternion.Euler(0f, 0f, -m_rollSpeed * Time.deltaTime);
         //Saves the new reference plane, according to the player's input.
         m_planeNormal = newOrientation * Vector3.up;
-        //}
 
         transform.rotation = newOrientation;
+    }
+
+    /// <summary>
+    /// Returns true if the player is moving in any direction (considering both rotation and translation)
+    /// </summary>
+    /// <returns></returns>
+    public bool IsMoving()
+    {
+        bool keyInput = !Mathf.Approximately(m_horizontalInput, 0f) || !Mathf.Approximately(m_lateralInput, 0f) || !Mathf.Approximately(m_verticalInput, 0f) || !Mathf.Approximately(m_rollInput, 0f);
+        bool mouseInput = false;
+
+        if (m_mousePosition != Input.mousePosition)
+        {
+            mouseInput = true;
+            m_mousePosition = Input.mousePosition;
+        }
+        else mouseInput = false;
+
+        if (keyInput || mouseInput) return true;
+        return false;
     }
 }

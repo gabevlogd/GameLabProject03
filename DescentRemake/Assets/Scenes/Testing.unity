@@ -5071,16 +5071,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba63a3e73c479d6448e4cbb21c5d31a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeedHorizontal: 4
-  MaxSpeedLateral: 4
-  MaxSpeedVertical: 4
-  MaxSpeedRoll: 300
-  HorizontalAcceleration: 12
-  LateralAcceleration: 12
-  VerticalAcceleration: 12
-  RollAcceleration: 1
-  SensX: 400
-  SensY: 400
+  m_MaxSpeedHorizontal: 4
+  m_MaxSpeedLateral: 4
+  m_MaxSpeedVertical: 4
+  m_MaxSpeedRoll: 300
+  m_HorizontalAcceleration: 12
+  m_LateralAcceleration: 12
+  m_VerticalAcceleration: 12
+  m_RollAcceleration: 1
+  m_SensX: 400
+  m_SensY: 400
 --- !u!54 &1942252012
 Rigidbody:
   m_ObjectHideFlags: 0
