@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_mousePosition;
     #endregion
 
-    private void Start()
+    private void Awake()
     {
         m_mousePosition = Input.mousePosition;
         m_planeNormal = transform.up;
