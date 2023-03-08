@@ -56,8 +56,6 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         SetSpeed();
         RotatePlayer();
-        //if (IsMoving()) Debug.Log("Moving");
-        //else Debug.Log("NotMoving");
     }
 
     private void FixedUpdate()
@@ -106,24 +104,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void RotatePlayer()
     {
-       //calculates rotations on x and y axes and saves them in newForward (i.e. calculates the new transform.forward based on player's input)
-       Quaternion yawPitch = transform.rotation * Quaternion.Euler(m_xRotation, m_yRotation, 0f);
-        Vector3 newForward = yawPitch * Vector3.forward;
-
-        //calculates the new local green axis of the player (transform.up) with respect to the normal of the reference plane (m_planeNormal)
-        float alignment = Vector3.Dot(transform.up, m_planeNormal);
-        Vector3 referenceUp = Mathf.Sign(alignment) * m_planeNormal;
-        Vector3 targetUp = Vector3.Lerp(transform.up, referenceUp, alignment * alignment); //[approximate calculation]
-
-        //new orientation to assign to the player (i.e. new transform.forward and transform.up based on player's input)
-        Quaternion newOrientation = Quaternion.LookRotation(newForward, targetUp);
-
-        //adds roll rotation
-        newOrientation = newOrientation * Quaternion.Euler(0f, 0f, -m_rollSpeed * Time.deltaTime);
-        //Saves the new reference plane, according to the player's input.
-        m_planeNormal = newOrientation * Vector3.up;
-
-        transform.rotation = newOrientation;
+        transform.rotation *= Quaternion.Euler(m_xRotation, m_yRotation, -m_rollSpeed);
     }
 
     /// <summary>
@@ -146,3 +127,27 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 }
+
+
+///Old RotatePlayer (Don't know why so complex, I'm probably stupid)
+//private void RotatePlayer()
+//{
+//    //calculates rotations on x and y axes and saves them in newForward (i.e. calculates the new transform.forward based on player's input)
+//    Quaternion yawPitch = transform.rotation * Quaternion.Euler(m_xRotation, m_yRotation, 0f);
+//    Vector3 newForward = yawPitch * Vector3.forward;
+
+//    //calculates the new local green axis of the player (transform.up) with respect to the normal of the reference plane (m_planeNormal)
+//    float alignment = Vector3.Dot(transform.up, m_planeNormal);
+//    Vector3 referenceUp = Mathf.Sign(alignment) * m_planeNormal;
+//    Vector3 targetUp = Vector3.Lerp(transform.up, referenceUp, alignment * alignment); //[approximate calculation]
+
+//    //new orientation to assign to the player (i.e. new transform.forward and transform.up based on player's input)
+//    Quaternion newOrientation = Quaternion.LookRotation(newForward, targetUp);
+
+//    //adds roll rotation
+//    newOrientation = newOrientation * Quaternion.Euler(0f, 0f, -m_rollSpeed * Time.deltaTime);
+//    //Saves the new reference plane, according to the player's input.
+//    m_planeNormal = newOrientation * Vector3.up;
+
+//    transform.rotation = newOrientation;
+//}
