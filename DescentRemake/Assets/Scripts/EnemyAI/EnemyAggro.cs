@@ -8,8 +8,7 @@ public class EnemyAggro : MonoBehaviour
     [Range(0,100)]
     public float m_DetectionDistance;       //The max range of the Spherecast used to see if the player is detected
 
-    public float m_InnerCombatDistance;     //Min Range to see if you can shoot
-    public float m_OuterCombatDistance;     //Max Range to see if you can shoot
+    public float m_DistanceFromPlayer;     //Set this to make the enemy not collide to the player, it's the distance beetween them
 
     public float m_MaxSpeed;                //Max Speed that this enemy can reach
     public float m_Accelleration;           //To set the accelleration when this object moves
@@ -18,8 +17,10 @@ public class EnemyAggro : MonoBehaviour
 
     private Transform m_player;             //We need the transform of the player if this enemy find it
     private bool m_isAggro;
+    public float m_actualSpeed;            //Actual speed of the Enemy
     void Start()
     {
+        m_actualSpeed = m_Accelleration / 100;
     }
 
     void FixedUpdate()
@@ -27,7 +28,10 @@ public class EnemyAggro : MonoBehaviour
         m_isAggro = PlayerDetection();  //See if the Player is detected and if is Aggroed
 
         if (m_isAggro)  //If the player is detected and we are not in fight range we can move
+        {
             EnemyMovement();
+            EnemyRotation();
+        }
     }
 
 
@@ -38,7 +42,11 @@ public class EnemyAggro : MonoBehaviour
             We can optimize this using a specific Layer for the Player so that we don't have to check every Collider in the game, but just the one in the set layer
         */
 
-        if (m_CollidersInRange.Length == 0) return false;    //If nothing is Detected return Null
+        if (m_CollidersInRange.Length == 0)
+        {
+            m_actualSpeed = 0;
+            return false;    //If nothing is Detected return Null
+        }
 
         foreach(var m_ColliderInRange in m_CollidersInRange)
         {
@@ -47,24 +55,40 @@ public class EnemyAggro : MonoBehaviour
                 Debug.Log("Player Detected");
                 m_player = m_ColliderInRange.transform; //I can get the player info
 
-                if (Vector3.Distance(transform.position, m_player.position) > m_OuterCombatDistance)    //If we are not in shooting range we can return true
+                if (Vector3.Distance(transform.position, m_player.position) > m_DistanceFromPlayer)    //If we are not in shooting range we can return true
                 {
-                    Debug.Log("Moving Toward Player");
                     return true;
                 }
                 else
                 {
-                    Debug.Log("Shooting Player");
+                    Debug.Log("I'm near Player");
                     return false;
                 }
             }
         }
+        m_actualSpeed = 0;
         return false;   //If a Player is not detected return false
     }
 
     public void EnemyMovement()
     {
-        Debug.Log("Eccomi");
-        transform.position = Vector3.MoveTowards(transform.position, m_player.position, m_MaxSpeed * Time.deltaTime);
+        Debug.Log("Moving Toward Player");
+        if (m_actualSpeed < m_MaxSpeed)
+        {
+            m_actualSpeed += m_Accelleration / 100;
+        }
+        else
+        {
+            m_actualSpeed = m_MaxSpeed;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, m_player.position, m_actualSpeed * Time.deltaTime);
+    }
+
+    public void EnemyRotation()
+    {
+        //Rotating the enemy towards the player
+        Quaternion lookRotation = Quaternion.LookRotation(m_player.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, m_MaxRotationSpeed * Time.deltaTime);
+        Debug.DrawRay(transform.position, transform.forward, Color.red);
     }
 }
