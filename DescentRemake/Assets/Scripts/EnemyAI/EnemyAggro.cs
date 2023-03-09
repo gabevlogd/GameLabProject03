@@ -66,5 +66,6 @@ public class EnemyAggro : MonoBehaviour
     {
         Debug.Log("Eccomi");
         transform.position = Vector3.MoveTowards(transform.position, m_player.position, m_MaxSpeed * Time.deltaTime);
+        transform.LookAt(m_player.transform);
     }
 }
