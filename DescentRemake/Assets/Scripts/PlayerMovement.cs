@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_mousePosition;
     #endregion
 
-    private void Awake()
+    private void Start()
     {
         m_mousePosition = Input.mousePosition;
         m_planeNormal = transform.up;
@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         SetSpeed();
         RotatePlayer();
+        //if (IsMoving()) Debug.Log("IsMoving");
+        //else Debug.Log("NotMoving");
     }
 
     private void FixedUpdate()
@@ -114,16 +116,18 @@ public class PlayerMovement : MonoBehaviour
     public bool IsMoving()
     {
         bool keyInput = !Mathf.Approximately(m_horizontalInput, 0f) || !Mathf.Approximately(m_lateralInput, 0f) || !Mathf.Approximately(m_verticalInput, 0f) || !Mathf.Approximately(m_rollInput, 0f);
-        bool mouseInput = false;
+        //bool mouseInput = false;
 
-        if (m_mousePosition != Input.mousePosition)
-        {
-            mouseInput = true;
-            m_mousePosition = Input.mousePosition;
-        }
-        else mouseInput = false;
+        //if (m_mousePosition != Input.mousePosition)
+        //{
+        //    mouseInput = true;
+        //    m_mousePosition = Input.mousePosition;
+        //}
+        //else mouseInput = false;
 
-        if (keyInput || mouseInput) return true;
+        //Debug.Log(mouseInput);
+
+        if (keyInput /*|| mouseInput*/) return true;
         return false;
     }
 }
