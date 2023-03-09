@@ -8,6 +8,8 @@ public class BasicBullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out PlayerMovement player)) return;
-        Debug.Log("OnTriggerEnter");
+        if (other.TryGetComponent(out EnemyAggro enemy)) Destroy(enemy.gameObject);
+        //Debug.Log("OnTriggerEnter");
+        Destroy(gameObject);
     }
 }
