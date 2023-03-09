@@ -17,7 +17,8 @@ public class EnemyAggro : MonoBehaviour
 
     private Transform m_player;             //We need the transform of the player if this enemy find it
     private bool m_isAggro;
-    public float m_actualSpeed;            //Actual speed of the Enemy
+    public float m_actualAngularSpeed;      //Actual speed of the Enemy rotation
+    public float m_actualSpeed;             //Actual speed of the Enemy
     void Start()
     {
         m_actualSpeed = m_Accelleration / 100;
@@ -34,7 +35,6 @@ public class EnemyAggro : MonoBehaviour
         }
     }
 
-
     public bool PlayerDetection()   //Aggro System of this enemy
     {
         Collider[] m_CollidersInRange = Physics.OverlapSphere(transform.position, m_DetectionDistance);  //This give you every collider in a sphere range
@@ -45,6 +45,7 @@ public class EnemyAggro : MonoBehaviour
         if (m_CollidersInRange.Length == 0)
         {
             m_actualSpeed = 0;
+            m_actualAngularSpeed = 0;
             return false;    //If nothing is Detected return Null
         }
 
@@ -67,6 +68,7 @@ public class EnemyAggro : MonoBehaviour
             }
         }
         m_actualSpeed = 0;
+        m_actualAngularSpeed = 0;
         return false;   //If a Player is not detected return false
     }
 
@@ -86,9 +88,17 @@ public class EnemyAggro : MonoBehaviour
 
     public void EnemyRotation()
     {
+        if(m_actualAngularSpeed < m_MaxRotationSpeed)
+        {
+            m_actualAngularSpeed += m_AngularAccelleration / 100;
+        }
+        else
+        {
+            m_actualAngularSpeed = m_MaxRotationSpeed;
+        }
         //Rotating the enemy towards the player
         Quaternion lookRotation = Quaternion.LookRotation(m_player.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, m_MaxRotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, m_actualAngularSpeed * Time.deltaTime);
         Debug.DrawRay(transform.position, transform.forward, Color.red);
     }
 }
