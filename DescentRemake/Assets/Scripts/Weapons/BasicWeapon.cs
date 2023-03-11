@@ -4,29 +4,33 @@ using UnityEngine;
 
 public abstract class BasicWeapon : MonoBehaviour
 {
-    public GameObject m_Bullet;
-    public Transform m_LeftShotPoint;
-    public Transform m_RightShotPoint;
+    public BasicBullet m_Bullet;
+    public Transform m_FirePointOne;
+    public Transform m_FirePointTwo;
+    public Vector3 m_FirePointOnePosition;
+    public Vector3 m_FirePointTwoPosition;
+    public KeyCode m_KeyToShoot;
     public string m_WeaponName;
+    public int m_WeaponID;
+    public enum FireType { Simultaneous, Alternating }
+    public FireType m_FireType;
+    public bool m_allowButtonHold;
+    public float m_BulletSpeed;
+    public float m_TimeBetweenShots;
+    public int m_BulletsPerShot;
+    public float m_TimeBetweenBullets;
 
-
-    protected float m_bulletSpeed;
-    protected float m_fireRate;
-
-    protected int m_bulletShots;
+    protected int m_bulletsShots;
     protected int m_bulletsLeft;
 
     protected bool m_shooting;
     protected bool m_readyToShoot;
     protected bool m_allowInvoke;
 
-    protected KeyCode m_keyToShoot;
 
     protected virtual void Awake()
     {
         Initialize();
-        m_readyToShoot = true;
-        m_allowInvoke = true;
     }
 
     protected virtual void Update()
@@ -36,20 +40,22 @@ public abstract class BasicWeapon : MonoBehaviour
     }
 
 
-    private void GetInput()
-    {
-        if (Input.GetKeyDown(m_keyToShoot)) m_shooting = true;
-        else m_shooting = false;
-    }
+    protected abstract void GetInput();
     protected abstract IEnumerator Shoot();
 
-    protected void ResetShoot()
+    protected virtual void ResetShoot()
     {
         m_readyToShoot = true;
         m_allowInvoke = true;
+        m_bulletsShots = 0;
     }
 
-    protected virtual void Initialize() { }
+    protected virtual void Initialize()
+    {
+        ResetShoot();
+        m_FirePointOne.localPosition = m_FirePointOnePosition;
+        m_FirePointTwo.localPosition = m_FirePointTwoPosition;
+    }
 
 
 }
