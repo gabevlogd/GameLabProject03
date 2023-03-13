@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245462578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.01}
+  m_LocalPosition: {x: 15.82, y: 0, z: 0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -483,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986558430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 6.57, y: 1, z: -7.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -579,7 +579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176010662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -22.7}
+  m_LocalPosition: {x: 0, y: 0, z: -0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -598,9 +598,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DetectionDistance: 50
+  m_DistanceFromPlayer: 0
+  m_MaxSpeed: 0.1
+  m_Accelleration: 0.002
+  m_MaxRotationSpeed: 1
+  m_AngularAccelleration: 1
+  m_actualAngularSpeed: 0
+  m_actualSpeed: 0
   m_InnerCombatDistance: 0
-  m_OuterCombatDistance: 10
-  m_MaxSpeed: 5
-  m_Accelleration: 0
-  m_MaxRotationSpeed: 0
-  m_AngularAccelleration: 0
+  m_OuterCombatDistance: 5
+  m_TypeOfEnemy: 0
+  m_MovementInCombatInSeconds: 2
