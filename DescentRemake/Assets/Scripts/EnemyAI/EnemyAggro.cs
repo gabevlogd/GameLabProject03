@@ -19,7 +19,7 @@ public class EnemyAggro : MonoBehaviour
     [System.NonSerialized]
     public Transform m_player;             //We need the transform of the player if this enemy find it
 
-    private bool m_isAggro;
+    public bool m_isAggro;
     public float m_actualAngularSpeed;      //Actual speed of the Enemy rotation
     public float m_actualSpeed;             //Actual speed of the Enemy
 
@@ -37,10 +37,13 @@ public class EnemyAggro : MonoBehaviour
     private float m_cooldownTimer;  //Used to create the cooldown system
     private int m_randomMovement;   //Used to see where to move random
 
+    //Test
+    public Rigidbody m_Rigidbody;
     void Start()
     {
         m_actualSpeed = 0;
         m_cooldownTimer = 0;
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -127,7 +130,7 @@ public class EnemyAggro : MonoBehaviour
         //Rotating the enemy towards the player
         Quaternion lookRotation = Quaternion.LookRotation(m_player.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, m_actualAngularSpeed);
-        Debug.DrawRay(transform.position, transform.forward, Color.red);
+        //Debug.DrawRay(transform.position, transform.forward, Color.red);
     }
 
     //Combat Mode
@@ -175,13 +178,14 @@ public class EnemyAggro : MonoBehaviour
                 else if (m_randomMovement == 2)
                 {
                     //Move up
-                    transform.Translate(Vector3.up * m_actualSpeed);
+                    transform.Translate(transform.up * m_actualSpeed);
                     Debug.Log("Moving Up");
                 }
                 else
                 {
                     //Move down
-                    transform.Translate(Vector3.down * m_actualSpeed);
+                    transform.Translate(-transform.up * m_actualSpeed);
+
                     Debug.Log("Moving down");
                 }
                 break;
@@ -214,6 +218,6 @@ public class EnemyAggro : MonoBehaviour
         {
             m_cooldownTimer = 0;
         }
-        Debug.Log("Cooldown Timer: " + m_cooldownTimer);
+        //Debug.Log("Cooldown Timer: " + m_cooldownTimer);
     }
 }
