@@ -146,11 +146,13 @@ MonoBehaviour:
   m_KeyToShoot: 324
   m_WeaponName: WeaponC
   m_WeaponID: 3
-  m_FireType: 1
+  m_FireType: 0
+  m_FirePointsRotation: 90
   m_BulletSpeed: 70
-  m_TimeBetweenShots: 0.1
+  m_TimeBetweenShots: 0.3
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
+  m_EnergyCost: 0.5
   m_AllowButtonHold: 1
 --- !u!1 &7937454953661892034
 GameObject:

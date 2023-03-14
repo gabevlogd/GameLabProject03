@@ -149,10 +149,12 @@ MonoBehaviour:
   m_WeaponName: Test Weapon
   m_WeaponID: 0
   m_FireType: 0
+  m_FirePointsRotation: 20
   m_BulletSpeed: 40
   m_TimeBetweenShots: 0.3
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
+  m_EnergyCost: 0.5
   m_AllowButtonHold: 1
 --- !u!1 &7937454953661892034
 GameObject:

@@ -8,23 +8,28 @@
           <NewMemberFileName>Assets\Scripts\Weapons\BasicWeapon.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
+      <Delegate Name="BasicWeapon.SpawnTypeHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Weapons\BasicWeapon.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AQQAACAAAAEABQIAQAgBEiEAAIAgAACAAgASAAQAEGg=</HashCode>
+      <HashCode>gwYBABQAQEEABQIAUAgBEiAAAAAgAACABAASEAUAAGg=</HashCode>
       <FileName>Assets\Scripts\Weapons\BasicWeapon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PrimaryWeapon">
     <Position X="3.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAABQAIAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AQQAABAAAAAABQAAAAAAAAAAAAAAAAAAAgAAAAEAAAA=</HashCode>
       <FileName>Assets\Scripts\Weapons\PrimaryWeapon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BasicBullet">
-    <Position X="3.25" Y="3" Width="2" />
+    <Position X="3.25" Y="3.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQAAAAAAAAA=</HashCode>
+      <HashCode>AAEABAAAAAAAAAAAAAAAAEAAAAAAAAAAQQAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\BasicBullet.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -18,6 +18,7 @@ public abstract class BasicWeapon : MonoBehaviour
     public enum FireType { Simultaneous, Alternated }
     public FireType m_FireType;
     //=========================================
+    public float m_FirePointsRotation;
     public float m_BulletSpeed;
     public float m_TimeBetweenShots;
     [Range(1f,5f)]
@@ -104,6 +105,8 @@ public abstract class BasicWeapon : MonoBehaviour
 
         m_spawnTypeHandler();
 
+        if (m_firePoints.Length > 1) RotateFirePoints();
+
         if (m_bulletsShots < m_BulletsPerShot && !m_readyToShoot) Invoke("SpawnBullets", m_TimeBetweenBullets);
     }
 
@@ -144,6 +147,11 @@ public abstract class BasicWeapon : MonoBehaviour
     {
         if (m_indexForDelegate == m_firePoints.Length - 1) m_indexForDelegate = 0;
         else m_indexForDelegate++;
+    }
+
+    protected virtual void RotateFirePoints()
+    {
+        m_FirePointsParent.localRotation *= Quaternion.Euler(0f, 0f, m_FirePointsRotation);
     }
 
 
