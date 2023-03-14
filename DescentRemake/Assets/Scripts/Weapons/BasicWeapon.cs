@@ -11,7 +11,6 @@ public abstract class BasicWeapon : MonoBehaviour
     public Transform m_FirePointsParent;
     public Vector3[] m_FirePointsPositions;
     //=========================================
-    public KeyCode m_KeyToShoot;
     public string m_WeaponName;
     public int m_WeaponID;
     //=========================================
@@ -30,7 +29,7 @@ public abstract class BasicWeapon : MonoBehaviour
     protected Transform[] m_firePoints;
     //=========================================
     protected int m_bulletsShots;
-    protected int m_bulletsLeft;
+    [HideInInspector] public int m_BulletsLeft;
     protected int m_indexForDelegate;
     //=========================================
     protected bool m_shooting;
@@ -50,7 +49,7 @@ public abstract class BasicWeapon : MonoBehaviour
     protected virtual void Update()
     {
         GetInput();
-        if (m_shooting && m_readyToShoot && m_bulletsLeft > 0) StartCoroutine(Shoot());
+        if (m_shooting && m_readyToShoot && m_BulletsLeft > 0) StartCoroutine(Shoot());
     }
 
     protected abstract void GetInput();
@@ -87,7 +86,7 @@ public abstract class BasicWeapon : MonoBehaviour
 
         yield return new WaitUntil(() => m_readyToShoot);
 
-        if (m_shooting && m_bulletsLeft > 0) StartCoroutine(Shoot());
+        if (m_shooting && m_BulletsLeft > 0) StartCoroutine(Shoot());
     }
 
     protected virtual void ResetShoot()
@@ -101,13 +100,14 @@ public abstract class BasicWeapon : MonoBehaviour
     protected virtual void SpawnBullets()
     {
         m_bulletsShots++;
-        m_bulletsLeft--;
+        m_BulletsLeft--;
+        
 
         m_spawnTypeHandler();
 
         if (m_firePoints.Length > 1) RotateFirePoints();
 
-        if (m_bulletsShots < m_BulletsPerShot && !m_readyToShoot) Invoke("SpawnBullets", m_TimeBetweenBullets);
+        if (m_bulletsShots < m_BulletsPerShot && !m_readyToShoot && m_FireType == FireType.Simultaneous) Invoke("SpawnBullets", m_TimeBetweenBullets);
     }
 
     /// <summary>
@@ -133,11 +133,11 @@ public abstract class BasicWeapon : MonoBehaviour
         Bullet.GetComponent<Rigidbody>().velocity = Bullet.transform.forward * m_BulletSpeed;
         Bullet.m_ShotedFromID = this.m_WeaponID;
 
-        if (m_bulletsShots == m_BulletsPerShot)
-        {
+        //if (m_bulletsShots == m_BulletsPerShot)
+        //{
             UpdateDelegateIndex();
             m_alreadyShoot = true;
-        }
+        //}
     }
 
     /// <summary>

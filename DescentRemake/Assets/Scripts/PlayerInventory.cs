@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
     public float m_Healt;
 
     public BasicWeapon[] m_Weapons;
+    public int[] m_SecondaryAmmos;
     public Transform m_PrimaryHand;
     public Transform m_SecondaryHand;
 
@@ -74,12 +75,12 @@ public class PlayerInventory : MonoBehaviour
         if((int)weaponToEquip < 3)
         {
             Destroy(m_PrimaryHand.GetComponentInChildren<BasicWeapon>().gameObject);
-            Instantiate(m_Weapons[(int)weaponToEquip], m_PrimaryHand.transform);
+            UIManager.m_Instance.m_CurrentPrimaryEquiped = Instantiate(m_Weapons[(int)weaponToEquip], m_PrimaryHand.transform);
         }
         else
         {
             Destroy(m_SecondaryHand.GetComponentInChildren<BasicWeapon>().gameObject);
-            Instantiate(m_Weapons[(int)weaponToEquip], m_SecondaryHand.transform);
+            UIManager.m_Instance.m_CurrentSecondaryEquiped = Instantiate(m_Weapons[(int)weaponToEquip], m_SecondaryHand.transform);
         }
         m_lastEquipedWeapon = weaponToEquip;
     }

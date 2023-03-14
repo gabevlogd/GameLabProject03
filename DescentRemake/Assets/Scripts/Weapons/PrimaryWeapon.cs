@@ -8,6 +8,7 @@ public class PrimaryWeapon : BasicWeapon
 
     public float m_EnergyCost;
     public bool m_AllowButtonHold;
+    public KeyCode m_KeyToShoot;
 
     protected override void Update()
     {
@@ -47,6 +48,6 @@ public class PrimaryWeapon : BasicWeapon
 
         if (m_firePoints.Length > 1) RotateFirePoints();
 
-        if (m_bulletsShots < m_BulletsPerShot && !m_readyToShoot) Invoke("SpawnBullets", m_TimeBetweenBullets);
+        if (m_bulletsShots < m_BulletsPerShot && !m_readyToShoot && m_FireType == FireType.Simultaneous) Invoke("SpawnBullets", m_TimeBetweenBullets);
     }
 }

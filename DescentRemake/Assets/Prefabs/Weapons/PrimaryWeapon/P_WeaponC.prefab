@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7565006922092239021}
   - component: {fileID: 7565006922092239022}
   m_Layer: 0
-  m_Name: WeaponA
+  m_Name: P_WeaponC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,18 +141,20 @@ MonoBehaviour:
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0, y: 0.9, z: 0}
-  - {x: 0.9, y: -0.9, z: 0}
-  - {x: -0.9, y: -0.9, z: 0}
-  m_KeyToShoot: 323
-  m_WeaponName: WeaponA
-  m_WeaponID: 1
-  m_FireType: 1
-  m_BulletSpeed: 50
-  m_TimeBetweenShots: 0.4
-  m_BulletsPerShot: 3
-  m_TimeBetweenBullets: 0.1
+  - {x: 0.9, y: 0, z: 0}
+  - {x: -0.9, y: 0, z: 0}
+  m_WeaponName: PrimaryC
+  m_WeaponID: 3
+  m_FireType: 0
+  m_FirePointsRotation: 90
+  m_BulletSpeed: 70
+  m_TimeBetweenShots: 0.5
+  m_BulletsPerShot: 2
+  m_TimeBetweenBullets: 0.2
+  m_BulletsLeft: 0
+  m_EnergyCost: 0.5
   m_AllowButtonHold: 1
+  m_KeyToShoot: 323
 --- !u!1 &7937454953661892034
 GameObject:
   m_ObjectHideFlags: 0

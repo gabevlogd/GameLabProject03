@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 6116696172817772645}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,13 +164,13 @@ MonoBehaviour:
   m_Energy: 100
   m_Healt: 100
   m_Weapons:
-  - {fileID: 7565006922092239022, guid: 040f4eb0354c91345a2f3ea058c4c194, type: 3}
   - {fileID: 7565006922092239022, guid: ad70c2c68209fb449b5efd0417f38cbf, type: 3}
   - {fileID: 7565006922092239022, guid: 48e1355f89b4b6f4991941a90e6319f7, type: 3}
   - {fileID: 7565006922092239022, guid: 76fecd81ee4bea947bc206a1686fdd49, type: 3}
-  - {fileID: 7565006922092239022, guid: 76fecd81ee4bea947bc206a1686fdd49, type: 3}
-  - {fileID: 7565006922092239022, guid: 76fecd81ee4bea947bc206a1686fdd49, type: 3}
-  - {fileID: 7565006922092239022, guid: 76fecd81ee4bea947bc206a1686fdd49, type: 3}
+  - {fileID: 3512537819019276840, guid: e04c490ac53f1474e820f0f5c8af7d8b, type: 3}
+  - {fileID: -4200291326438404555, guid: 949502d023c045a469ea7179f3cd84f0, type: 3}
+  - {fileID: -1458851543939090399, guid: 713b07178aaa05741abe7f110780f28f, type: 3}
+  - {fileID: -9158763323857443385, guid: db9712b08c0c705488e726290b9f27b6, type: 3}
   m_PrimaryHand: {fileID: 394330465810605305}
   m_SecondaryHand: {fileID: 5718239332984906615}
 --- !u!1 &4423918072740269107

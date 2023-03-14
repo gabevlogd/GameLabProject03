@@ -29,7 +29,7 @@ Transform:
   m_Children:
   - {fileID: 7283808806696216768}
   m_Father: {fileID: 7565006922092239021}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2857220312694309436
 GameObject:
@@ -61,36 +61,6 @@ Transform:
   m_Father: {fileID: 8977892885608952294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6844583026058189175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 554084902798184696}
-  m_Layer: 0
-  m_Name: FirePointTwo
-  m_TagString: Right
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &554084902798184696
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6844583026058189175}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7565006922092239021}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7565006922092239023
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,9 +70,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7565006922092239021}
-  - component: {fileID: 7565006922092239022}
+  - component: {fileID: -1458851543939090399}
   m_Layer: 0
-  m_Name: WeaponB
+  m_Name: S_WeaponC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,13 +89,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8323059508565811487}
-  - {fileID: 554084902798184696}
   - {fileID: 8977892885608952294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7565006922092239022
+--- !u!114 &-1458851543939090399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,50 +102,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7565006922092239023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3093eda8016414ba16ab89c42ad8e8, type: 3}
+  m_Script: {fileID: 11500000, guid: e806c631436619d4d90eb95e7dba37b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Bullet: {fileID: 7216612127264942400, guid: c0d20e65f9269b143ba489cf96dce749, type: 3}
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0, y: 0, z: 0}
-  m_KeyToShoot: 323
-  m_WeaponName: WeaponB
-  m_WeaponID: 2
-  m_FireType: 1
-  m_BulletSpeed: 100
-  m_TimeBetweenShots: 1.5
-  m_BulletsPerShot: 1
-  m_TimeBetweenBullets: 0
-  m_AllowButtonHold: 0
---- !u!1 &7937454953661892034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8323059508565811487}
-  m_Layer: 0
-  m_Name: FirePointOne
-  m_TagString: Left
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8323059508565811487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7937454953661892034}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7565006922092239021}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  - {x: 0.9, y: 0, z: 0}
+  - {x: -0.9, y: 0, z: 0}
+  m_WeaponName: SecondaryC
+  m_WeaponID: 0
+  m_FireType: 0
+  m_FirePointsRotation: 90
+  m_BulletSpeed: 40
+  m_TimeBetweenShots: 0.5
+  m_BulletsPerShot: 3
+  m_TimeBetweenBullets: 0.1
+  m_BulletsLeft: 0
+  m_AllowButtonHold: 1
+  m_KeyToShoot: 324
+  m_MagazineCapacity: 30

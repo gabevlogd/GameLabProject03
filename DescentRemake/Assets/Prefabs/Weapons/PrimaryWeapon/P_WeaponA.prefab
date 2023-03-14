@@ -29,7 +29,7 @@ Transform:
   m_Children:
   - {fileID: 7283808806696216768}
   m_Father: {fileID: 7565006922092239021}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2857220312694309436
 GameObject:
@@ -61,36 +61,6 @@ Transform:
   m_Father: {fileID: 8977892885608952294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6844583026058189175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 554084902798184696}
-  m_Layer: 0
-  m_Name: FirePointTwo
-  m_TagString: Right
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &554084902798184696
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6844583026058189175}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7565006922092239021}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7565006922092239023
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +72,7 @@ GameObject:
   - component: {fileID: 7565006922092239021}
   - component: {fileID: 7565006922092239022}
   m_Layer: 0
-  m_Name: WeaponC
+  m_Name: P_WeaponA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,8 +89,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8323059508565811487}
-  - {fileID: 554084902798184696}
   - {fileID: 8977892885608952294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -141,46 +109,18 @@ MonoBehaviour:
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0.9, y: 0, z: 0}
-  - {x: -0.9, y: 0, z: 0}
-  m_KeyToShoot: 324
-  m_WeaponName: WeaponC
-  m_WeaponID: 3
-  m_FireType: 0
-  m_FirePointsRotation: 90
-  m_BulletSpeed: 70
-  m_TimeBetweenShots: 0.3
+  - {x: 0, y: 0.9, z: 0}
+  - {x: 0.9, y: -0.9, z: 0}
+  - {x: -0.9, y: -0.9, z: 0}
+  m_WeaponName: PrimaryA
+  m_WeaponID: 1
+  m_FireType: 1
+  m_FirePointsRotation: 0
+  m_BulletSpeed: 50
+  m_TimeBetweenShots: 0.2
   m_BulletsPerShot: 1
-  m_TimeBetweenBullets: 0
-  m_EnergyCost: 0.5
+  m_TimeBetweenBullets: 0.2
+  m_BulletsLeft: 0
+  m_EnergyCost: 2
   m_AllowButtonHold: 1
---- !u!1 &7937454953661892034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8323059508565811487}
-  m_Layer: 0
-  m_Name: FirePointOne
-  m_TagString: Left
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8323059508565811487
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7937454953661892034}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7565006922092239021}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_KeyToShoot: 323

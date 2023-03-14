@@ -70,9 +70,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7565006922092239021}
-  - component: {fileID: 7565006922092239022}
+  - component: {fileID: -9158763323857443385}
   m_Layer: 0
-  m_Name: WeaponTest
+  m_Name: S_WeaponD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7565006922092239022
+--- !u!114 &-9158763323857443385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7565006922092239023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3093eda8016414ba16ab89c42ad8e8, type: 3}
+  m_Script: {fileID: 11500000, guid: e806c631436619d4d90eb95e7dba37b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Bullet: {fileID: 7216612127264942400, guid: c0d20e65f9269b143ba489cf96dce749, type: 3}
@@ -110,17 +110,18 @@ MonoBehaviour:
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
   - {x: 0.9, y: 0, z: 0}
-  - {x: 0, y: -0.9, z: 0}
   - {x: -0.9, y: 0, z: 0}
   - {x: 0, y: 0.9, z: 0}
-  m_WeaponName: Test Weapon
+  - {x: 0, y: -0.9, z: 0}
+  m_WeaponName: SecondaryD
   m_WeaponID: 0
   m_FireType: 0
-  m_FirePointsRotation: 20
+  m_FirePointsRotation: 90
   m_BulletSpeed: 40
-  m_TimeBetweenShots: 0.3
+  m_TimeBetweenShots: 0.5
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
-  m_EnergyCost: 0.5
+  m_BulletsLeft: 0
   m_AllowButtonHold: 1
-  m_KeyToShoot: 323
+  m_KeyToShoot: 324
+  m_MagazineCapacity: 5
