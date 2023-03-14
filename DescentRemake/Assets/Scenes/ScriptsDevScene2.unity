@@ -500,9 +500,10 @@ GameObject:
   - component: {fileID: 1176010666}
   - component: {fileID: 1176010665}
   - component: {fileID: 1176010664}
+  - component: {fileID: 1176010668}
   - component: {fileID: 1176010663}
   - component: {fileID: 1176010667}
-  - component: {fileID: 1176010668}
+  - component: {fileID: 1176010669}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -604,6 +605,7 @@ MonoBehaviour:
   m_Accelleration: 0.002
   m_MaxRotationSpeed: 1
   m_AngularAccelleration: 1
+  m_isAggro: 0
   m_actualAngularSpeed: 0
   m_actualSpeed: 0
   m_InnerCombatDistance: 0
@@ -627,3 +629,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1176010669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176010662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb0c3b9773d2a641b55c6ea1394096b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

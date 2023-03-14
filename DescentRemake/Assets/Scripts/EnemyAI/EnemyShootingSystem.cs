@@ -27,7 +27,7 @@ public class EnemyShootingSystem : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(transform.position, transform.forward, out hit);
         Debug.DrawRay(transform.position, transform.forward, Color.red);
-        if(hit.collider.tag == "Player")
+        if(hit.collider?.tag == "Player")
         {
             Debug.Log("Shooting");
         }
