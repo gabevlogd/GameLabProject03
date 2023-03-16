@@ -143,7 +143,7 @@ MonoBehaviour:
   m_FirePointsPositions:
   - {x: 0, y: 0, z: 0}
   m_WeaponName: PrimaryB
-  m_WeaponID: 2
+  m_WeaponID: 1
   m_FireType: 1
   m_FirePointsRotation: 0
   m_BulletSpeed: 100

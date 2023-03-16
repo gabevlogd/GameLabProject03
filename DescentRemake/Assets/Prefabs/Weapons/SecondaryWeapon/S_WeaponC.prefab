@@ -112,7 +112,8 @@ MonoBehaviour:
   - {x: 0.9, y: 0, z: 0}
   - {x: -0.9, y: 0, z: 0}
   m_WeaponName: SecondaryC
-  m_WeaponID: 0
+  m_WeaponID: 5
+  m_WeaponType: 1
   m_FireType: 0
   m_FirePointsRotation: 90
   m_BulletSpeed: 40

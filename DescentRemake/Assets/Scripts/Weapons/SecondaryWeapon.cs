@@ -8,6 +8,7 @@ public class SecondaryWeapon : BasicWeapon
     public KeyCode m_KeyToShoot;
     public int m_MagazineCapacity;
 
+
     protected override void GetInput()
     {
         if (m_AllowButtonHold) m_shooting = Input.GetKey(m_KeyToShoot);
@@ -18,5 +19,7 @@ public class SecondaryWeapon : BasicWeapon
     {
         base.Initialize();
         m_BulletsLeft = m_MagazineCapacity;
+
+        
     }
 }

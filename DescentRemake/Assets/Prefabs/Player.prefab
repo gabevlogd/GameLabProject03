@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 4423918071321188614}
   - component: {fileID: 6877874243608907482}
   - component: {fileID: 4423918071321188609}
-  - component: {fileID: 6116696172817772645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -149,30 +148,6 @@ MonoBehaviour:
   m_RollAcceleration: 3
   m_SensX: 400
   m_SensY: 400
---- !u!114 &6116696172817772645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4423918071321188608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c20ed01bbaf1f43b2d0409a84cdc69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Energy: 100
-  m_Healt: 100
-  m_Weapons:
-  - {fileID: 7565006922092239022, guid: ad70c2c68209fb449b5efd0417f38cbf, type: 3}
-  - {fileID: 7565006922092239022, guid: 48e1355f89b4b6f4991941a90e6319f7, type: 3}
-  - {fileID: 7565006922092239022, guid: 76fecd81ee4bea947bc206a1686fdd49, type: 3}
-  - {fileID: 3512537819019276840, guid: e04c490ac53f1474e820f0f5c8af7d8b, type: 3}
-  - {fileID: -4200291326438404555, guid: 949502d023c045a469ea7179f3cd84f0, type: 3}
-  - {fileID: -1458851543939090399, guid: 713b07178aaa05741abe7f110780f28f, type: 3}
-  - {fileID: -9158763323857443385, guid: db9712b08c0c705488e726290b9f27b6, type: 3}
-  m_PrimaryHand: {fileID: 394330465810605305}
-  m_SecondaryHand: {fileID: 5718239332984906615}
 --- !u!1 &4423918072740269107
 GameObject:
   m_ObjectHideFlags: 0

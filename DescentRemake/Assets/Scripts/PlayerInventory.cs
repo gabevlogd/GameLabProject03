@@ -9,24 +9,57 @@ public class PlayerInventory : MonoBehaviour
     public float m_Energy;
     public float m_Healt;
 
-    public BasicWeapon[] m_Weapons;
-    public int[] m_SecondaryAmmos;
-    public Transform m_PrimaryHand;
-    public Transform m_SecondaryHand;
+    public BasicWeapon[] m_WeaponsPrefabs;
+    public Dictionary<int, BasicWeapon> m_Weapons;
 
-    private WeaponType m_weaponToEquip;
-    private WeaponType m_lastEquipedWeapon;
+    public Transform m_Player;
+    public Transform m_WeaponsDepot;
+
+    private BasicWeapon m_primaryToEquip;
+    private BasicWeapon m_secondaryToEquip;
+
+    [HideInInspector]
+    public BasicWeapon m_LastPrimaryEquiped;
+    [HideInInspector]
+    public BasicWeapon m_LastSecondaryEquiped;
 
     private void Awake()
     {
-        m_Instance = this;
-        Instantiate(m_Weapons[0], m_PrimaryHand.transform);
-        Instantiate(m_Weapons[3], m_SecondaryHand.transform);
+        InitializeInventory();
     }
 
-    private void Update()
+    private void OnGUI()
     {
         SwitchWeapon();
+    }
+
+    /// <summary>
+    /// Initializes the starting stats of the inventory
+    /// </summary>
+    private void InitializeInventory()
+    {
+        m_Instance = this;
+        m_Weapons = new Dictionary<int, BasicWeapon>();
+
+        //initializes the weapons dictionary and put the weapons in the depot 
+        foreach(BasicWeapon weapon in m_WeaponsPrefabs)
+        {
+            m_Weapons.Add(weapon.m_WeaponID, null);
+            m_Weapons[weapon.m_WeaponID] = Instantiate(weapon, m_WeaponsDepot);
+            m_Weapons[weapon.m_WeaponID].gameObject.SetActive(false);
+            //Debug.Log(m_weapons[weapon.m_WeaponID].m_WeaponName);
+        }
+
+        //equips the first two weapons of the game
+        m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].gameObject.SetActive(true);
+        m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].transform.SetParent(m_Player, false);
+        m_primaryToEquip = m_Weapons[m_WeaponsPrefabs[0].m_WeaponID];
+        m_LastPrimaryEquiped = m_primaryToEquip;
+
+        m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].gameObject.SetActive(true);
+        m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].transform.SetParent(m_Player, false);
+        m_secondaryToEquip = m_Weapons[m_WeaponsPrefabs[3].m_WeaponID];
+        m_LastSecondaryEquiped = m_secondaryToEquip;
     }
 
     /// <summary>
@@ -34,65 +67,82 @@ public class PlayerInventory : MonoBehaviour
     /// </summary>
     private void SwitchWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if (m_weaponToEquip != WeaponType.PrimaryA) m_weaponToEquip = WeaponType.PrimaryA;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (m_weaponToEquip != WeaponType.PrimaryB) m_weaponToEquip = WeaponType.PrimaryB;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (m_weaponToEquip != WeaponType.PrimaryC) m_weaponToEquip = WeaponType.PrimaryC;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            if (m_weaponToEquip != WeaponType.SecondaryA) m_weaponToEquip = WeaponType.SecondaryA;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            if (m_weaponToEquip != WeaponType.SecondaryB) m_weaponToEquip = WeaponType.SecondaryB;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            if (m_weaponToEquip != WeaponType.SecondaryC) m_weaponToEquip = WeaponType.SecondaryC;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            if (m_weaponToEquip != WeaponType.SecondaryD) m_weaponToEquip = WeaponType.SecondaryD;
+        Event PressedKey = Event.current;
+
+        if (PressedKey.isKey) //if a key is pressed
+        {   
+            //if keycode match one of the cases set the weapon to equip
+            switch (PressedKey.keyCode)
+            {
+                case KeyCode.Alpha1:
+                    //Debug.Log(1);
+                    m_primaryToEquip = m_WeaponsPrefabs[0];
+                    break;
+                case KeyCode.Alpha2:
+                    //Debug.Log(2);
+                    m_primaryToEquip = m_WeaponsPrefabs[1];
+                    break;
+                case KeyCode.Alpha3:
+                    //Debug.Log(3);
+                    m_primaryToEquip = m_WeaponsPrefabs[2];
+                    break;
+                case KeyCode.Alpha5:
+                    //Debug.Log(5);
+                    m_secondaryToEquip = m_WeaponsPrefabs[3];
+                    break;
+                case KeyCode.Alpha6:
+                    //Debug.Log(6);
+                    m_secondaryToEquip = m_WeaponsPrefabs[4];
+                    break;
+                case KeyCode.Alpha7:
+                    //Debug.Log(7);
+                    m_secondaryToEquip = m_WeaponsPrefabs[5];
+                    break;
+                case KeyCode.Alpha8:
+                    //Debug.Log(8);
+                    m_secondaryToEquip = m_WeaponsPrefabs[6];
+                    break;
+            } 
         }
 
-        if (m_weaponToEquip != m_lastEquipedWeapon) EquipWeapon(m_weaponToEquip);
+        //if a new primary weapon is selected equip the new wapon
+        if (m_primaryToEquip.m_WeaponID != m_LastPrimaryEquiped.m_WeaponID)
+        {
+            m_LastPrimaryEquiped.transform.SetParent(m_WeaponsDepot, false);
+            m_LastPrimaryEquiped.gameObject.SetActive(false);
+            EquipWeapon(m_primaryToEquip.m_WeaponID);
+        }
+        //if a new primary weapon is selected equip the new wapon
+        if (m_secondaryToEquip.m_WeaponID != m_LastSecondaryEquiped.m_WeaponID)
+        {
+            m_LastSecondaryEquiped.transform.SetParent(m_WeaponsDepot, false);
+            m_LastSecondaryEquiped.gameObject.SetActive(false);
+            EquipWeapon(m_secondaryToEquip.m_WeaponID);
+        }
     }
 
+
     /// <summary>
-    /// Equip weaponToEquip
+    /// Equip the weapon with the corresponding weaponID
     /// </summary>
-    /// <param name="weaponToEquip">the chosen weapon to equip</param>
-    private void EquipWeapon(WeaponType weaponToEquip)
+    /// <param name="weaponID">ID of the weapon to equip</param>
+    private void EquipWeapon(int weaponID)
     {
-        if((int)weaponToEquip < 3)
+        m_Weapons[weaponID].gameObject.SetActive(true); //set active the weapon to equip
+        m_Weapons[weaponID].transform.SetParent(m_Player, false); //set weapon to equip parent of player
+
+        //update the last equiped weapon 
+        if (m_Weapons[weaponID].m_WeaponType == WeaponType.Primary)
         {
-            Destroy(m_PrimaryHand.GetComponentInChildren<BasicWeapon>().gameObject);
-            UIManager.m_Instance.m_CurrentPrimaryEquiped = Instantiate(m_Weapons[(int)weaponToEquip], m_PrimaryHand.transform);
+            m_LastPrimaryEquiped = m_Weapons[weaponID];
+            UIManager.m_Instance.m_CurrentPrimaryEquiped = m_Weapons[weaponID]; //updates the primary equipped weapon reference on UI manager
         }
         else
         {
-            Destroy(m_SecondaryHand.GetComponentInChildren<BasicWeapon>().gameObject);
-            UIManager.m_Instance.m_CurrentSecondaryEquiped = Instantiate(m_Weapons[(int)weaponToEquip], m_SecondaryHand.transform);
+            m_LastSecondaryEquiped = m_Weapons[weaponID];
+            UIManager.m_Instance.m_CurrentSecondaryEquiped = m_Weapons[weaponID]; //updates the secondary equipped weapon reference on UI manager
         }
-        m_lastEquipedWeapon = weaponToEquip;
     }
+
 }
 
-public enum WeaponType
-{
-    PrimaryA,
-    PrimaryB,
-    PrimaryC,
-    SecondaryA,
-    SecondaryB,
-    SecondaryC,
-    SecondaryD,
-}

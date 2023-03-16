@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum WeaponType { Primary, Secondary }
+
 public abstract class BasicWeapon : MonoBehaviour
 {
     #region Public fields:
@@ -14,6 +17,7 @@ public abstract class BasicWeapon : MonoBehaviour
     public string m_WeaponName;
     public int m_WeaponID;
     //=========================================
+    public WeaponType m_WeaponType;
     public enum FireType { Simultaneous, Alternated }
     public FireType m_FireType;
     //=========================================
@@ -43,6 +47,11 @@ public abstract class BasicWeapon : MonoBehaviour
 
     protected virtual void Awake()
     {
+        ResetShoot();
+    }
+
+    protected virtual void Start()
+    {
         Initialize();
     }
 
@@ -56,6 +65,7 @@ public abstract class BasicWeapon : MonoBehaviour
 
     protected virtual void Initialize()
     {
+        //Debug.Log("Initiallize");
         m_firePoints = new Transform[m_FirePointsPositions.Length];
 
         for (int i = 0; i < m_FirePointsPositions.Length; i++)

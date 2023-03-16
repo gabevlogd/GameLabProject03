@@ -113,7 +113,7 @@ MonoBehaviour:
   - {x: 0.9, y: -0.9, z: 0}
   - {x: -0.9, y: -0.9, z: 0}
   m_WeaponName: PrimaryA
-  m_WeaponID: 1
+  m_WeaponID: 0
   m_FireType: 1
   m_FirePointsRotation: 0
   m_BulletSpeed: 50
