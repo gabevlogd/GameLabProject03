@@ -138,16 +138,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba63a3e73c479d6448e4cbb21c5d31a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeedHorizontal: 4
-  m_MaxSpeedLateral: 4
-  m_MaxSpeedVertical: 4
-  m_MaxSpeedRoll: 0.5
+  m_MaxSpeedHorizontal: 8
+  m_MaxSpeedLateral: 8
+  m_MaxSpeedVertical: 8
+  m_MaxSpeedRoll: 0.2
   m_HorizontalAcceleration: 12
   m_LateralAcceleration: 12
   m_VerticalAcceleration: 12
-  m_RollAcceleration: 3
-  m_SensX: 400
-  m_SensY: 400
+  m_RollAcceleration: 2
+  m_SensX: 800
+  m_SensY: 800
 --- !u!1 &4423918072740269107
 GameObject:
   m_ObjectHideFlags: 0
