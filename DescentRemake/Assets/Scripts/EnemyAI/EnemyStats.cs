@@ -17,7 +17,11 @@ public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
         m_LifePoint -= Damage;
     }
 
-    public void GetDestroyed() => Destroy(gameObject);
+    public void GetDestroyed()
+    {
+        PlayerInventory.m_Instance.m_Score++;
+        Destroy(gameObject);
+    } 
 }
 
 public interface IDamageable

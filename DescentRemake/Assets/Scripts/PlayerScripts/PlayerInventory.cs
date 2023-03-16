@@ -6,8 +6,11 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory m_Instance;
 
-    public float m_Energy;
-    public float m_Healt;
+    public int m_DefaultEnergy;
+    public int m_DefaultHealt;
+    [HideInInspector] public float m_Energy;
+    [HideInInspector] public float m_Healt;
+    [HideInInspector] public int m_Score;
 
     public BasicWeapon[] m_WeaponsPrefabs;
     public Dictionary<int, BasicWeapon> m_Weapons;
@@ -26,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         InitializeInventory();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnGUI()
@@ -40,6 +44,9 @@ public class PlayerInventory : MonoBehaviour
     {
         m_Instance = this;
         m_Weapons = new Dictionary<int, BasicWeapon>();
+        m_Healt = m_DefaultHealt;
+        m_Energy = m_DefaultEnergy;
+        m_Score = 0;
 
         //initializes the weapons dictionary and put the weapons in the depot 
         foreach(BasicWeapon weapon in m_WeaponsPrefabs)
