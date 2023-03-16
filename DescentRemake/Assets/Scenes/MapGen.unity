@@ -2116,6 +2116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPlaceholder
       objectReference: {fileID: 0}
+    - target: {fileID: 4203594027664227224, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4203594027664227231, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
       propertyPath: m_RootOrder
       value: 1
