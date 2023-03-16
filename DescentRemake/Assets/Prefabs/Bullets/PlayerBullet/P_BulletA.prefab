@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2403533486836179719}
   - component: {fileID: 6307480086708778273}
   - component: {fileID: 4240823209898814666}
-  - component: {fileID: 325313437075228934}
+  - component: {fileID: -5041398458208901849}
   m_Layer: 0
-  m_Name: BulletC
+  m_Name: P_BulletA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &325313437075228934
+--- !u!114 &-5041398458208901849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_ShotedFromID: 0
   m_Mesh: {fileID: 0}
   m_Material: {fileID: 0}
-  m_Damage: 20
+  m_Damage: 5
 --- !u!1 &8017143000082966246
 GameObject:
   m_ObjectHideFlags: 0

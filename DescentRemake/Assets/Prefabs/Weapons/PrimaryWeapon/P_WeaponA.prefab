@@ -109,18 +109,18 @@ MonoBehaviour:
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0.9, y: 0, z: 0}
-  - {x: -0.9, y: 0, z: 0}
+  - {x: 0.6, y: 0, z: 0}
+  - {x: -0.6, y: 0, z: 0}
   m_WeaponName: PrimaryA
   m_WeaponID: 0
   m_WeaponType: 0
   m_FireType: 0
   m_FirePointsRotation: 0
-  m_BulletSpeed: 40
-  m_TimeBetweenShots: 0.3
+  m_BulletSpeed: 50
+  m_TimeBetweenShots: 0.3333
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
   m_BulletsLeft: 0
-  m_EnergyCost: 0.5
+  m_EnergyCost: 0.25
   m_AllowButtonHold: 1
   m_KeyToShoot: 323

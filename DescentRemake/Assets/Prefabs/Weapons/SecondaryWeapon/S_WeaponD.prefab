@@ -105,21 +105,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e806c631436619d4d90eb95e7dba37b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Bullet: {fileID: 7216612127264942400, guid: 340d2deb75acfbd46826065a2845dd5f, type: 3}
+  m_Bullet: {fileID: 325313437075228934, guid: 28cbd58fcc06a624e88e333e0d020ee2, type: 3}
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0.9, y: 0, z: 0}
   - {x: -0.9, y: 0, z: 0}
-  - {x: 0, y: 0.9, z: 0}
-  - {x: 0, y: -0.9, z: 0}
+  - {x: 0.9, y: 0, z: 0}
   m_WeaponName: SecondaryD
   m_WeaponID: 6
   m_WeaponType: 1
   m_FireType: 0
-  m_FirePointsRotation: 90
-  m_BulletSpeed: 40
-  m_TimeBetweenShots: 0.5
+  m_FirePointsRotation: 0
+  m_BulletSpeed: 60
+  m_TimeBetweenShots: 2
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
   m_BulletsLeft: 0
