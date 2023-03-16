@@ -137,23 +137,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3093eda8016414ba16ab89c42ad8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Bullet: {fileID: 7216612127264942400, guid: c0d20e65f9269b143ba489cf96dce749, type: 3}
+  m_Bullet: {fileID: 325313437075228934, guid: 340d2deb75acfbd46826065a2845dd5f, type: 3}
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
   - {x: 0.9, y: 0, z: 0}
   - {x: -0.9, y: 0, z: 0}
+  - {x: 0, y: 0.9, z: 0}
+  - {x: 0, y: -0.9, z: 0}
   m_WeaponName: PrimaryC
   m_WeaponID: 2
+  m_WeaponType: 0
   m_FireType: 0
-  m_FirePointsRotation: 90
-  m_BulletSpeed: 70
+  m_FirePointsRotation: 0
+  m_BulletSpeed: 60
   m_TimeBetweenShots: 0.5
-  m_BulletsPerShot: 2
+  m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0.2
   m_BulletsLeft: 0
-  m_EnergyCost: 0.5
-  m_AllowButtonHold: 1
+  m_EnergyCost: 5
+  m_AllowButtonHold: 0
   m_KeyToShoot: 323
 --- !u!1 &7937454953661892034
 GameObject:

@@ -136,10 +136,13 @@ public class EnemyAggro : MonoBehaviour
     //Combat Mode
     public bool CombatDetection()
     {
-        m_distanceBeetweenEnemyPlayer = Vector3.Distance(transform.position, m_player.position);
-        if (m_distanceBeetweenEnemyPlayer <= m_OuterCombatDistance && m_distanceBeetweenEnemyPlayer >= m_InnerCombatDistance)
+        if(m_player != null)
         {
-            return true;
+            m_distanceBeetweenEnemyPlayer = Vector3.Distance(transform.position, m_player.position);
+            if (m_distanceBeetweenEnemyPlayer <= m_OuterCombatDistance && m_distanceBeetweenEnemyPlayer >= m_InnerCombatDistance)
+            {
+                return true;
+            }
         }
         return false;
     }

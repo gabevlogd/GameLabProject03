@@ -105,22 +105,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3093eda8016414ba16ab89c42ad8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Bullet: {fileID: 7216612127264942400, guid: c0d20e65f9269b143ba489cf96dce749, type: 3}
+  m_Bullet: {fileID: -5041398458208901849, guid: c0d20e65f9269b143ba489cf96dce749, type: 3}
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0, y: 0.9, z: 0}
-  - {x: 0.9, y: -0.9, z: 0}
-  - {x: -0.9, y: -0.9, z: 0}
+  - {x: 0.9, y: 0, z: 0}
+  - {x: -0.9, y: 0, z: 0}
   m_WeaponName: PrimaryA
   m_WeaponID: 0
-  m_FireType: 1
+  m_WeaponType: 0
+  m_FireType: 0
   m_FirePointsRotation: 0
-  m_BulletSpeed: 50
-  m_TimeBetweenShots: 0.2
+  m_BulletSpeed: 40
+  m_TimeBetweenShots: 0.3
   m_BulletsPerShot: 1
-  m_TimeBetweenBullets: 0.2
+  m_TimeBetweenBullets: 0
   m_BulletsLeft: 0
-  m_EnergyCost: 2
+  m_EnergyCost: 0.5
   m_AllowButtonHold: 1
   m_KeyToShoot: 323

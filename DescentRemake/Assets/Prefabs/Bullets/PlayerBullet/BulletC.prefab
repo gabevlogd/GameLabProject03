@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2403533486836179719}
   - component: {fileID: 6307480086708778273}
   - component: {fileID: 4240823209898814666}
-  - component: {fileID: 7216612127264942400}
+  - component: {fileID: 325313437075228934}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7216612127264942400
+--- !u!114 &325313437075228934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,10 +72,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3453199164292454802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b800b63f0d0fb4eaf13a2a5defcd8b, type: 3}
+  m_Script: {fileID: 11500000, guid: a6d8129dfea3e8c4990640bedb99cb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShotedFromID: 0
+  m_Mesh: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_Damage: 20
 --- !u!1 &8017143000082966246
 GameObject:
   m_ObjectHideFlags: 0
