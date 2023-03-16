@@ -12,9 +12,10 @@ public class EnemyWeapon : BasicWeapon
         m_shooting = m_shootingSystem.m_isShooting;
     }
 
-    void Start()
+    protected override void Start()
     {
         m_shootingSystem = GetComponentInParent<EnemyShootingSystem>();
+        base.Start();
     }
 
     protected override void Update()

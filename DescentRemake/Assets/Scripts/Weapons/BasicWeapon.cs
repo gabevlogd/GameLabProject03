@@ -101,6 +101,7 @@ public abstract class BasicWeapon : MonoBehaviour
 
     protected virtual void ResetShoot()
     {
+        Debug.Log("ResetShoot");
         m_readyToShoot = true;
         m_allowInvoke = true;
         m_bulletsShots = 0;

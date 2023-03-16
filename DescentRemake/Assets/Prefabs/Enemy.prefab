@@ -50,15 +50,16 @@ MonoBehaviour:
   m_FirePointsPositions:
   - {x: 0.9, y: 0, z: 0}
   - {x: -0.9, y: 0, z: 0}
-  m_KeyToShoot: 0
-  m_WeaponName: 
-  m_WeaponID: 0
+  m_WeaponName: Enemy Weapon
+  m_WeaponID: 666
+  m_WeaponType: 0
   m_FireType: 0
   m_FirePointsRotation: 0
-  m_BulletSpeed: 20
-  m_TimeBetweenShots: 0.5
+  m_BulletSpeed: 30
+  m_TimeBetweenShots: 1
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
+  m_BulletsLeft: 0
 --- !u!1 &3874408134410689996
 GameObject:
   m_ObjectHideFlags: 0
