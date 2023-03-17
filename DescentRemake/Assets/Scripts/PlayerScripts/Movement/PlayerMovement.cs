@@ -16,9 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public float m_LateralAcceleration;
     public float m_VerticalAcceleration;
     public float m_RollAcceleration;
-    [Header("Mouse Sensitivity")]
-    public float m_SensX;
-    public float m_SensY;
+    //[Header("Mouse Sensitivity")]
+    public static float m_SensX;
+    public static float m_SensY;
     #endregion
     #region Private Params:
     private float m_horizontalInput;

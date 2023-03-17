@@ -97,7 +97,7 @@ public class UIManager : MonoBehaviour
             int energyLeftInt = (int)m_energyLeft;
             float energyLeftDecimalPart = m_energyLeft - energyLeftInt;
 
-            if (Mathf.Approximately(energyLeftDecimalPart, 0f)) m_Energy.text = "Energy: " + m_energyLeft.ToString();
+            if (Mathf.Abs(energyLeftDecimalPart) < 0.5f) m_Energy.text = "Energy: " + energyLeftInt.ToString();
         }
         
     }
