@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 3874408134410689991}
   - component: {fileID: 1310000574834994457}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Enemy Type1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 26125309b7c4a6041a5c1ffc83ea8c44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,16 +246,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DetectionDistance: 30
   m_DistanceFromPlayer: 10
-  m_MaxSpeed: 0.1
+  m_MaxSpeed: 0.3
   m_Accelleration: 0.002
   m_MaxRotationSpeed: 1
   m_AngularAccelleration: 1
   m_isAggro: 0
   m_actualAngularSpeed: 0
   m_actualSpeed: 0
-  m_InnerCombatDistance: 0
+  m_InnerCombatDistance: 3
   m_OuterCombatDistance: 5
-  m_TypeOfEnemy: 0
+  m_TypeOfEnemy: 1
   m_MovementInCombatInSeconds: 2
   m_Rigidbody: {fileID: 0}
 --- !u!114 &3874408134410689991
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0f617719ba65340b15399644c37b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LifePoint: 50
+  m_LifePoint: 15
 --- !u!1 &4705895785652509776
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 7565006922092239021}
   - component: {fileID: 997130298765518825}
   m_Layer: 0
-  m_Name: EnemyWeapon
+  m_Name: EnemyWeapon 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,19 +105,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcdf14e7a6ccc34097e922316cd47e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Bullet: {fileID: 4462749441904642789, guid: c4e238b89260edb48a938cb2ead3fef9, type: 3}
+  m_Bullet: {fileID: 4462749441904642789, guid: fd7970543193b1c4fa1cfe4238cf26d0, type: 3}
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0.9, y: 0, z: 0}
-  - {x: -0.9, y: 0, z: 0}
+  - {x: 0.9, y: 0.3, z: 0}
+  - {x: -0.9, y: 0.3, z: 0}
   m_WeaponName: Enemy Weapon
-  m_WeaponID: 666
+  m_WeaponID: 668
   m_WeaponType: 0
-  m_FireType: 0
-  m_FirePointsRotation: 20
+  m_FireType: 1
+  m_FirePointsRotation: 0
   m_BulletSpeed: 40
-  m_TimeBetweenShots: 0.3
+  m_TimeBetweenShots: 1
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
   m_BulletsLeft: 0
