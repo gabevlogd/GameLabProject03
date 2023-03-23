@@ -78,7 +78,7 @@ MonoBehaviour:
   m_ShotedFromID: 0
   m_Mesh: {fileID: 0}
   m_Material: {fileID: 0}
-  m_Damage: 2
+  m_Damage: 4
 --- !u!1 &8017143000082966246
 GameObject:
   m_ObjectHideFlags: 0

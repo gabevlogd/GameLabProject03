@@ -15,7 +15,10 @@ public class UIManager : MonoBehaviour
 	public Image m_EnergyBarL;
 	public Image m_EnergyBarR;
 	public Image m_HealtSprite;
-	public Sprite[] m_HealtSpritesSheet; 
+	public Image m_PrimaryWeaponSprite;
+	public Image m_SecondaryWeaponSprite;
+	public Sprite[] m_HealtSpritesSheet;
+	public Sprite[] m_WeaponSpritesSheet;
 
     private int m_score;
     private float m_energyLeft;
@@ -125,6 +128,7 @@ public class UIManager : MonoBehaviour
         {
             //Debug.Log("Update Primary Info");
             m_PrimaryWeapon.text = m_CurrentPrimaryEquiped.m_WeaponName;
+			m_PrimaryWeaponSprite.sprite = m_WeaponSpritesSheet[m_CurrentPrimaryEquiped.m_WeaponID];
             m_lastPrimaryEquiped = m_CurrentPrimaryEquiped;
         }
     }
@@ -138,7 +142,8 @@ public class UIManager : MonoBehaviour
         {
             //Debug.Log("Update Secondary Info");
             m_SecondaryWeapon.text = m_CurrentSecondaryEquiped.m_WeaponName;
-            m_lastSecondaryEquiped = m_CurrentSecondaryEquiped;
+			m_SecondaryWeaponSprite.sprite = m_WeaponSpritesSheet[m_CurrentSecondaryEquiped.m_WeaponID];
+			m_lastSecondaryEquiped = m_CurrentSecondaryEquiped;
         }
     }
 

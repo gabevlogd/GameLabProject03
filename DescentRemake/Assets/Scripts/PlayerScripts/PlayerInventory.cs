@@ -63,9 +63,9 @@ public class PlayerInventory : MonoBehaviour
         m_primaryToEquip = m_Weapons[m_WeaponsPrefabs[0].m_WeaponID];
         m_LastPrimaryEquiped = m_primaryToEquip;
 
-        m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].gameObject.SetActive(true);
-        m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].transform.SetParent(m_Player, false);
-        m_secondaryToEquip = m_Weapons[m_WeaponsPrefabs[3].m_WeaponID];
+        m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].gameObject.SetActive(true);
+        m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].transform.SetParent(m_Player, false);
+        m_secondaryToEquip = m_Weapons[m_WeaponsPrefabs[2].m_WeaponID];
         m_LastSecondaryEquiped = m_secondaryToEquip;
     }
 
@@ -89,26 +89,26 @@ public class PlayerInventory : MonoBehaviour
                     //Debug.Log(2);
                     m_primaryToEquip = m_WeaponsPrefabs[1];
                     break;
-                case KeyCode.Alpha3:
-                    //Debug.Log(3);
-                    m_primaryToEquip = m_WeaponsPrefabs[2];
-                    break;
+                //case KeyCode.Alpha3:
+                //    //Debug.Log(3);
+                //    m_primaryToEquip = m_WeaponsPrefabs[2];
+                //    break;
                 case KeyCode.Alpha5:
                     //Debug.Log(5);
-                    m_secondaryToEquip = m_WeaponsPrefabs[3];
+                    m_secondaryToEquip = m_WeaponsPrefabs[2];
                     break;
                 case KeyCode.Alpha6:
                     //Debug.Log(6);
-                    m_secondaryToEquip = m_WeaponsPrefabs[4];
+                    m_secondaryToEquip = m_WeaponsPrefabs[3];
                     break;
-                case KeyCode.Alpha7:
-                    //Debug.Log(7);
-                    m_secondaryToEquip = m_WeaponsPrefabs[5];
-                    break;
-                case KeyCode.Alpha8:
-                    //Debug.Log(8);
-                    m_secondaryToEquip = m_WeaponsPrefabs[6];
-                    break;
+                //case KeyCode.Alpha7:
+                //    //Debug.Log(7);
+                //    m_secondaryToEquip = m_WeaponsPrefabs[5];
+                //    break;
+                //case KeyCode.Alpha8:
+                //    //Debug.Log(8);
+                //    m_secondaryToEquip = m_WeaponsPrefabs[6];
+                //    break;
             } 
         }
 

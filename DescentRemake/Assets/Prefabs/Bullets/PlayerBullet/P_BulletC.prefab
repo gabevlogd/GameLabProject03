@@ -79,7 +79,7 @@ MonoBehaviour:
   m_ShotedFromID: 0
   m_Mesh: {fileID: 0}
   m_Material: {fileID: 0}
-  m_Damage: 20
+  m_Damage: 5
   m_Radar: {fileID: 6391734585368721506}
   m_BulletType: 0
   m_DamageType: 0

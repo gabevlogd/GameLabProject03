@@ -109,8 +109,8 @@ MonoBehaviour:
   m_FirePoint: {fileID: 7283808806696216768}
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
-  - {x: 0.6, y: 0.3, z: 0}
-  - {x: -0.6, y: 0.3, z: 0}
+  - {x: 0.8, y: 0.6, z: 0}
+  - {x: -0.8, y: 0.6, z: 0}
   m_WeaponName: SecondaryB
   m_WeaponID: 4
   m_WeaponType: 1

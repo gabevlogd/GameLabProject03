@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DetectionDistance: 30
   m_DistanceFromPlayer: 10
-  m_MaxSpeed: 0.3
+  m_MaxSpeed: 0.4
   m_Accelleration: 0.002
   m_MaxRotationSpeed: 1
   m_AngularAccelleration: 1

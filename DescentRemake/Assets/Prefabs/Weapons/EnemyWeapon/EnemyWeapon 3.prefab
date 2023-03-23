@@ -116,7 +116,7 @@ MonoBehaviour:
   m_WeaponType: 0
   m_FireType: 1
   m_FirePointsRotation: 0
-  m_BulletSpeed: 40
+  m_BulletSpeed: 50
   m_TimeBetweenShots: 1
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0
