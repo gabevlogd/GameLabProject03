@@ -67,7 +67,7 @@ public class EnemyAggro : MonoBehaviour
 
     public bool PlayerDetection()   //Aggro System of this enemy
     {
-        int layerMask = 1 << 3;
+        int layerMask = 1 << 7;
         Collider[] m_CollidersInRange = Physics.OverlapSphere(transform.position, m_DetectionDistance, layerMask);  //This give you every collider in a sphere range
         /*
             We can optimize this using a specific Layer for the Player so that we don't have to check every Collider in the game, but just the one in the set layer
@@ -80,21 +80,26 @@ public class EnemyAggro : MonoBehaviour
             return false;    //If nothing is Detected return Null
         }
 
-        if (m_CollidersInRange[0].tag == "Player")  //If the player is Detected
+        foreach(Collider collider in m_CollidersInRange)
         {
-            //Debug.Log("Player Detected");
-            m_player = m_CollidersInRange[0].transform; //I can get the player info
+            if (collider.tag == "Player")  //If the player is Detected
+            {
+                //Debug.Log("Player Detected");
+                m_player = collider.transform; //I can get the player info
 
-            if (Vector3.Distance(transform.position, m_player.position) > m_DistanceFromPlayer)    //If we are not in shooting range we can return true
-            {
-                return true;
-            }
-            else
-            {
-                //Debug.Log("I'm near Player");
-                return false;
+                if (Vector3.Distance(transform.position, m_player.position) > m_DistanceFromPlayer)    //If we are not in shooting range we can return true
+                {
+                    return true;
+                }
+                else
+                {
+                    //Debug.Log("I'm near Player");
+                    return false;
+                }
             }
         }
+
+        
 
 
         m_actualSpeed = 0;

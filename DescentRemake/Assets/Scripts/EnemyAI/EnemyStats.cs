@@ -13,8 +13,8 @@ public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
 
     public void GetDamage(int Damage)
     {
-        Debug.Log("GetDamage: " + m_LifePoint);
         m_LifePoint -= Damage;
+        Debug.Log("GetDamage: " + m_LifePoint);
     }
 
     public void GetDestroyed()

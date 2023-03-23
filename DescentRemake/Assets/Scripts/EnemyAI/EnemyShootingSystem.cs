@@ -34,7 +34,7 @@ public class EnemyShootingSystem : MonoBehaviour
         if(hit.collider?.tag == "Player")
         {
             m_isShooting = true;
-            Debug.Log("Shooting");
+            //Debug.Log("Shooting");
         }
     }
 }
