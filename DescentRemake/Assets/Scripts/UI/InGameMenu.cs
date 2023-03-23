@@ -63,8 +63,8 @@ public class InGameMenu : MonoBehaviour
     {
         if (PlayerMovement.m_SensX != m_MouseX.value || PlayerMovement.m_SensY != m_MouseY.value)
         {
-            PlayerMovement.m_SensX = m_MouseX.value;
-            PlayerMovement.m_SensY = m_MouseY.value;
+            PlayerMovement.m_SensX = m_MouseY.value;
+            PlayerMovement.m_SensY = m_MouseX.value;
             m_SliderValueX.text = "SENS MOUSE X: " + m_MouseX.value;
             m_SliderValueY.text = "SENS MOUSE Y: " + m_MouseY.value;
         }

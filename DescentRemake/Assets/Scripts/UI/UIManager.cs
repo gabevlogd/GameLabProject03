@@ -12,6 +12,10 @@ public class UIManager : MonoBehaviour
     public Text m_PrimaryWeapon;
     public Text m_SecondaryWeapon;
     public Text m_SecondaryAmmo;
+	public Image m_EnergyBarL;
+	public Image m_EnergyBarR;
+	public Image m_HealtSprite;
+	public Sprite[] m_HealtSpritesSheet; 
 
     private int m_score;
     private float m_energyLeft;
@@ -49,8 +53,8 @@ public class UIManager : MonoBehaviour
         m_healt = m_playerInventory.m_Healt;
         m_energyLeft = m_playerInventory.m_Energy;
         m_Score.text = "Score: " + m_score.ToString();
-        m_Healt.text = "Shield: " + m_healt.ToString();
-        m_Energy.text = "Energy: " + m_energyLeft.ToString();
+        m_Healt.text = m_healt.ToString();
+        m_Energy.text = m_energyLeft.ToString();
 
         m_CurrentPrimaryEquiped = m_playerInventory.m_Weapons[m_playerInventory.m_LastPrimaryEquiped.m_WeaponID];
         m_PrimaryWeapon.text = m_CurrentPrimaryEquiped.m_WeaponName;
@@ -80,7 +84,11 @@ public class UIManager : MonoBehaviour
         if (m_healt != m_playerInventory.m_Healt)
         {
             m_healt = m_playerInventory.m_Healt;
-            m_Healt.text = "Shield: " + m_healt.ToString();
+            m_Healt.text = m_healt.ToString();
+
+			int healtLeft = (int)(m_healt / 10f);
+
+			m_HealtSprite.sprite = m_HealtSpritesSheet[healtLeft - 1];
         }
     }
 
@@ -97,7 +105,13 @@ public class UIManager : MonoBehaviour
             int energyLeftInt = (int)m_energyLeft;
             float energyLeftDecimalPart = m_energyLeft - energyLeftInt;
 
-            if (Mathf.Abs(energyLeftDecimalPart) < 0.5f) m_Energy.text = "Energy: " + energyLeftInt.ToString();
+			if (Mathf.Abs(energyLeftDecimalPart) < 0.5f) 
+			{ 
+				m_Energy.text = energyLeftInt.ToString();
+				m_EnergyBarL.fillAmount = m_energyLeft / 100f;
+				print(m_EnergyBarL.fillAmount);
+				m_EnergyBarR.fillAmount = m_energyLeft / 100f;
+			}
         }
         
     }
