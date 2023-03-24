@@ -11,6 +11,7 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
 
     private MeshRenderer m_meshRenderer;
     private Animator m_animator;
+    private Collider m_collider;
     private bool m_isOpen;
     private float m_closingTime;
 
@@ -18,6 +19,7 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
     {
         m_meshRenderer = GetComponent<MeshRenderer>();
         m_animator = GetComponent<Animator>();
+        m_collider = GetComponent<Collider>();
 
         InitializeDoor();
     }
@@ -25,10 +27,12 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
     private void Update()
     {
         if (m_isOpen) CheckClosingConditions();
+        if (m_IsDestroyable && m_Healt <= 0) GetDestroyed(/* needs param */);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("OnCollisionEnter");
         if (!m_isOpen) CheckOpeningConditions(collision);
     }
 
@@ -46,11 +50,10 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
 
     private void CheckOpeningConditions(Collision collision)
     {
+        Debug.Log("CheckOpeningConditions");
         if (m_IsDestroyable)
         {
-            if (collision.gameObject.TryGetComponent(out BasicBullet bullet)) GetDamage(bullet.m_Damage);
-            else GetDamage(1);
-            if (m_Healt <= 0) GetDestroyed(/* needs param */);
+            GetDamage(1);
             return;
         }
 
@@ -79,10 +82,12 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
         }
     }
 
-    private void OpenDoor()
+
+    public void OpenDoor()
     {
-        if ( /*Controllare se NON è in corso l'animazione di chiusura*/true) 
+        if (/*Need to find a method to check if the door is running the close animation*/ true) 
         {
+            m_collider.isTrigger = true;
             m_animator.SetBool("IsOpen", true);
             m_isOpen = true;
         }
@@ -91,6 +96,7 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
     private void CloseDoor()
     {
         m_animator.SetBool("IsOpen", false);
+        m_collider.isTrigger = false;
         m_isOpen = false;
     }
 
@@ -103,7 +109,13 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
     public void GetDestroyed(int waitTime = 0)
     {
         //Run VFX 
-        m_meshRenderer.forceRenderingOff = true; //Test if it work
+        //m_meshRenderer.forceRenderingOff = true; //Test if it work
+
+        //Temporary
+        m_collider.isTrigger = true;
+        m_animator.SetBool("IsOpen", true);
+        m_isOpen = true;
+        //end 
 
         Debug.Log("Destruction in: " + waitTime + " seconds");
         Destroy(gameObject, waitTime);

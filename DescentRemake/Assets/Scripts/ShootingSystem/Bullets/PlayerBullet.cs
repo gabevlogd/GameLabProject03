@@ -53,6 +53,12 @@ public class PlayerBullet : BasicBullet
     /// <param name="target"></param>
     private void DealsDamage(Collider target)
     {
+        //sorry for that
+        if (target.TryGetComponent(out DoorBehaviours door) && !door.m_IsDestroyable)
+        {
+            door.OpenDoor();
+            return;
+        }
         //select the type of damage
         if (m_DamageType == DamageType.Standard) StandardDamage(target);
         else AOEDamage();
