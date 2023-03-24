@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 {
     [HideInInspector]
     public PlayerInventory m_Stats;
+    public GameObject m_PlayerUI;
     public Camera m_MiniMap;
     private void Awake()
     {
@@ -45,8 +46,16 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 
     private void ShowOrHideMap()
     {
-        if (m_MiniMap.gameObject.activeInHierarchy) m_MiniMap.gameObject.SetActive(false);
-        else m_MiniMap.gameObject.SetActive(true);
+        if (m_MiniMap.gameObject.activeInHierarchy)
+        {
+            m_MiniMap.gameObject.SetActive(false);
+            m_PlayerUI.SetActive(true);
+        }
+        else 
+        {
+            m_MiniMap.gameObject.SetActive(true);
+            m_PlayerUI.SetActive(false);
+        }
     }
 
 

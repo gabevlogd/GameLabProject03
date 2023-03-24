@@ -3247,6 +3247,10 @@ PrefabInstance:
       propertyPath: m_MiniMap
       value: 
       objectReference: {fileID: 963413631}
+    - target: {fileID: 6895488551140003948, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
+      propertyPath: m_PlayerUI
+      value: 
+      objectReference: {fileID: 2080592393}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
 --- !u!4 &1195384810 stripped
@@ -4944,7 +4948,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4203594027345089207, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4203594027664227224, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
       propertyPath: m_Name
@@ -4985,6 +4989,10 @@ PrefabInstance:
     - target: {fileID: 4203594027664227231, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203594028092302340, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 4203594028092302343, guid: b003dfadef366294cabbd45deee5b33f, type: 3}
       propertyPath: m_IsActive
