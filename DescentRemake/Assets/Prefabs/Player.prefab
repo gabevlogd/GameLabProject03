@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MaxSpeedHorizontal: 8
   m_MaxSpeedLateral: 8
   m_MaxSpeedVertical: 8
-  m_MaxSpeedRoll: 0.5
+  m_MaxSpeedRoll: 1
   m_HorizontalAcceleration: 12
   m_LateralAcceleration: 12
   m_VerticalAcceleration: 12

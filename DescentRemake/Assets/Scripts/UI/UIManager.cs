@@ -90,8 +90,7 @@ public class UIManager : MonoBehaviour
             m_Healt.text = m_healt.ToString();
 
 			int healtLeft = (int)(m_healt / 10f);
-
-			m_HealtSprite.sprite = m_HealtSpritesSheet[healtLeft - 1];
+			if(healtLeft > 0) m_HealtSprite.sprite = m_HealtSpritesSheet[healtLeft - 1];
         }
     }
 
