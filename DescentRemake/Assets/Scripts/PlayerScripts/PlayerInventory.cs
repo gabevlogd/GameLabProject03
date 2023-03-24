@@ -26,6 +26,8 @@ public class PlayerInventory : MonoBehaviour
     [HideInInspector]
     public BasicWeapon m_LastSecondaryEquiped;
 
+    public int m_DoorsKey { get; set; }
+
     private void Awake()
     {
         InitializeInventory();

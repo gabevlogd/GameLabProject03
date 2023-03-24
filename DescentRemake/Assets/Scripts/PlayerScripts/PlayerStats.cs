@@ -22,13 +22,13 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
         if (Input.GetKeyDown(KeyCode.Tab)) ShowOrHideMap();
     }
 
-    public void GetDamage(int Damage) 
+    public void GetDamage(int Damage = 0) 
     {
         Debug.Log("Player Damaged");
         m_Stats.m_Healt -= Damage;
     }
 
-    public void GetDestroyed()
+    public void GetDestroyed(int waitTime = 0)
     {
         Debug.Log("GameOver");
         //Destroy(gameObject);
