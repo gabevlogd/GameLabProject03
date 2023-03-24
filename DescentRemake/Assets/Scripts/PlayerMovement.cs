@@ -106,7 +106,14 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void RotatePlayer()
     {
-        transform.rotation *= Quaternion.Euler(m_xRotation, m_yRotation, -m_rollSpeed);
+        //Transform target = transform;
+        //target.rotation *= Quaternion.Euler(m_xRotation, m_yRotation, -m_rollSpeed);
+        ////transform.rotation *= Quaternion.Euler(m_xRotation, m_yRotation, -m_rollSpeed);
+        //transform.rotation = Quaternion.LookRotation(target.forward, target.up);
+
+        transform.Rotate(transform.forward, -m_rollSpeed, Space.World);
+        transform.Rotate(transform.up, m_yRotation, Space.World);
+        transform.Rotate(transform.right, m_xRotation, Space.World);
     }
 
     /// <summary>
