@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
         m_Stats.m_Healt -= Damage;
     }
 
-    public void GetDestroyed()
+    public void GetDestroyed(float waitTime = 0)
     {
         Debug.Log("GameOver");
         //Destroy(gameObject);
