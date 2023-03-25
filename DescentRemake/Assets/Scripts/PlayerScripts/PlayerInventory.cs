@@ -6,17 +6,23 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory m_Instance;
 
-    public int m_DefaultEnergy;
-    public int m_DefaultHealt;
-    [HideInInspector] public float m_Energy;
-    [HideInInspector] public float m_Healt;
-    [HideInInspector] public int m_Score;
+    public int m_DefaultEnergy, m_MaxEnergy;
+    public int m_DefaultHealt, m_MaxHealt;
+    public int m_DefaultLives, m_MaxLives;
+
+    [HideInInspector]
+    public float m_Energy, m_Healt, m_Lives;
+    [HideInInspector]
+    public int m_Score, m_Keys, m_Survivors;
 
     public BasicWeapon[] m_WeaponsPrefabs;
     public Dictionary<int, BasicWeapon> m_Weapons;
+    public Dictionary<int, int> m_AmmoCounters;
+    public Dictionary<int, bool> m_UnlockedWeapon;
 
     public Transform m_Player;
     public Transform m_WeaponsDepot;
+    public Transform m_SpawnPoint;
 
     private BasicWeapon m_primaryToEquip;
     private BasicWeapon m_secondaryToEquip;
@@ -44,9 +50,14 @@ public class PlayerInventory : MonoBehaviour
     {
         m_Instance = this;
         m_Weapons = new Dictionary<int, BasicWeapon>();
+        m_AmmoCounters = new Dictionary<int, int>();
+        m_UnlockedWeapon = new Dictionary<int, bool>();
         m_Healt = m_DefaultHealt;
         m_Energy = m_DefaultEnergy;
+        m_Lives = m_DefaultLives;
         m_Score = 0;
+        m_Keys = 0;
+        m_Survivors = 0;
 
         //initializes the weapons dictionary and put the weapons in the depot 
         foreach(BasicWeapon weapon in m_WeaponsPrefabs)
@@ -54,7 +65,19 @@ public class PlayerInventory : MonoBehaviour
             m_Weapons.Add(weapon.m_WeaponID, null);
             m_Weapons[weapon.m_WeaponID] = Instantiate(weapon, m_WeaponsDepot);
             m_Weapons[weapon.m_WeaponID].gameObject.SetActive(false);
-            //Debug.Log(m_weapons[weapon.m_WeaponID].m_WeaponName);
+
+            m_UnlockedWeapon.Add(weapon.m_WeaponID, false);
+        }
+
+        //Initialize the AmmoCounters dictionary
+        foreach(BasicWeapon weapon in m_WeaponsPrefabs)
+        {
+            //if the weapon is primary does not use ammo but energy so continue
+            if (m_Weapons[weapon.m_WeaponID].m_WeaponType == WeaponType.Primary) continue;
+
+            //Pass to the ammo dictionary the number of ammo associated to the weapon ID
+            SecondaryWeapon secondaryWeapon = m_Weapons[weapon.m_WeaponID] as SecondaryWeapon;
+            m_AmmoCounters.Add(weapon.m_WeaponID, secondaryWeapon.m_MagazineCapacity);
         }
 
         //equips the first two weapons of the game
@@ -62,11 +85,13 @@ public class PlayerInventory : MonoBehaviour
         m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].transform.SetParent(m_Player, false);
         m_primaryToEquip = m_Weapons[m_WeaponsPrefabs[0].m_WeaponID];
         m_LastPrimaryEquiped = m_primaryToEquip;
+        m_UnlockedWeapon[m_WeaponsPrefabs[0].m_WeaponID] = true;
 
         m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].gameObject.SetActive(true);
         m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].transform.SetParent(m_Player, false);
         m_secondaryToEquip = m_Weapons[m_WeaponsPrefabs[2].m_WeaponID];
         m_LastSecondaryEquiped = m_secondaryToEquip;
+        m_UnlockedWeapon[m_WeaponsPrefabs[2].m_WeaponID] = true;
     }
 
     /// <summary>
@@ -82,34 +107,34 @@ public class PlayerInventory : MonoBehaviour
             switch (PressedKey.keyCode)
             {
                 case KeyCode.Alpha1:
-                    //Debug.Log(1);
+                    if (m_UnlockedWeapon[m_WeaponsPrefabs[0].m_WeaponID] == false) break; //Check if the selected weapon is unlocked
                     m_primaryToEquip = m_WeaponsPrefabs[0];
                     break;
                 case KeyCode.Alpha2:
-                    //Debug.Log(2);
+                    if (m_UnlockedWeapon[m_WeaponsPrefabs[1].m_WeaponID] == false) break;
                     m_primaryToEquip = m_WeaponsPrefabs[1];
                     break;
                 //case KeyCode.Alpha3:
-                //    //Debug.Log(3);
+                //    if (m_UnlockedWeapon[m_WeaponsPrefabs[2].m_WeaponID] == false) break;
                 //    m_primaryToEquip = m_WeaponsPrefabs[2];
                 //    break;
                 case KeyCode.Alpha5:
-                    //Debug.Log(5);
+                    if (m_UnlockedWeapon[m_WeaponsPrefabs[2].m_WeaponID] == false) break;
                     m_secondaryToEquip = m_WeaponsPrefabs[2];
                     break;
                 case KeyCode.Alpha6:
-                    //Debug.Log(6);
+                    if (m_UnlockedWeapon[m_WeaponsPrefabs[3].m_WeaponID] == false) break;
                     m_secondaryToEquip = m_WeaponsPrefabs[3];
                     break;
-                //case KeyCode.Alpha7:
-                //    //Debug.Log(7);
-                //    m_secondaryToEquip = m_WeaponsPrefabs[5];
-                //    break;
-                //case KeyCode.Alpha8:
-                //    //Debug.Log(8);
-                //    m_secondaryToEquip = m_WeaponsPrefabs[6];
-                //    break;
-            } 
+                    //case KeyCode.Alpha7:
+                    //    if (m_UnlockedWeapon[m_WeaponsPrefabs[5].m_WeaponID] == false) break;
+                    //    m_secondaryToEquip = m_WeaponsPrefabs[5];
+                    //    break;
+                    //case KeyCode.Alpha8:
+                    //    if (m_UnlockedWeapon[m_WeaponsPrefabs[6].m_WeaponID] == false) break;
+                    //    m_secondaryToEquip = m_WeaponsPrefabs[6];
+                    //    break;
+            }
         }
 
         //if a new primary weapon is selected equip the new wapon

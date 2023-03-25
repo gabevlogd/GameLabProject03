@@ -7,19 +7,19 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 {
     [HideInInspector]
     public PlayerInventory m_Stats;
-    public GameObject m_PlayerUI;
-    public Camera m_MiniMap;
+    //public GameObject m_PlayerUI;
+    //public Camera m_MiniMap;
     private void Awake()
     {
         m_Stats = PlayerInventory.m_Instance;
-        m_MiniMap.gameObject.SetActive(false);
+        //m_MiniMap.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         //if (m_Stats.m_Healt <= 0) GetDestroyed();
         CheckEndGameCondition();
-        if (Input.GetKeyDown(KeyCode.Tab)) ShowOrHideMap();
+        //if (Input.GetKeyDown(KeyCode.Tab)) ShowOrHideMap();
     }
 
     public void GetDamage(int Damage) 
@@ -46,16 +46,16 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 
     private void ShowOrHideMap()
     {
-        if (m_MiniMap.gameObject.activeInHierarchy)
-        {
-            m_MiniMap.gameObject.SetActive(false);
-            m_PlayerUI.SetActive(true);
-        }
-        else 
-        {
-            m_MiniMap.gameObject.SetActive(true);
-            m_PlayerUI.SetActive(false);
-        }
+        //if (m_MiniMap.gameObject.activeInHierarchy)
+        //{
+        //    m_MiniMap.gameObject.SetActive(false);
+        //    m_PlayerUI.SetActive(true);
+        //}
+        //else 
+        //{
+        //    m_MiniMap.gameObject.SetActive(true);
+        //    m_PlayerUI.SetActive(false);
+        //}
     }
 
 

@@ -27,8 +27,6 @@ public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
 
     public void GetDestroyed(float waitTime = 0)
     {
-        //m_meshRenderer.forceRenderingOff = true;
-        //m_ExplosionEffect.Play();
         Instantiate(m_ExplosionEffect, transform.position, Quaternion.identity);
         PlayerInventory.m_Instance.m_Score++;
         Destroy(gameObject, waitTime);

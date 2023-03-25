@@ -111,7 +111,6 @@ public class UIManager : MonoBehaviour
 			{ 
 				m_Energy.text = energyLeftInt.ToString();
 				m_EnergyBarL.fillAmount = m_energyLeft / 100f;
-				print(m_EnergyBarL.fillAmount);
 				m_EnergyBarR.fillAmount = m_energyLeft / 100f;
 			}
         }
