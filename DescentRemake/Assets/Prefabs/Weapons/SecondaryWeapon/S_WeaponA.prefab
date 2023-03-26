@@ -124,3 +124,4 @@ MonoBehaviour:
   m_AllowButtonHold: 1
   m_KeyToShoot: 324
   m_MagazineCapacity: 20
+  m_StartingAmmo: 0

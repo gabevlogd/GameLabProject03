@@ -89,8 +89,8 @@ public class UIManager : MonoBehaviour
             m_healt = m_playerInventory.m_Healt;
             m_Healt.text = m_healt.ToString();
 
-			int healtLeft = (int)(m_healt / 10f);
-			if(healtLeft > 0) m_HealtSprite.sprite = m_HealtSpritesSheet[healtLeft - 1];
+			int healtLeft = (int)(m_healt / 10f); 
+			if(healtLeft > 0 && m_healt <= m_playerInventory.m_DefaultHealt) m_HealtSprite.sprite = m_HealtSpritesSheet[healtLeft - 1];
         }
     }
 
@@ -103,16 +103,11 @@ public class UIManager : MonoBehaviour
         if (m_energyLeft != m_playerInventory.m_Energy)
         {
             m_energyLeft = m_playerInventory.m_Energy;
-
             int energyLeftInt = (int)m_energyLeft;
-            float energyLeftDecimalPart = m_energyLeft - energyLeftInt;
 
-			if (Mathf.Abs(energyLeftDecimalPart) < 0.5f) 
-			{ 
-				m_Energy.text = energyLeftInt.ToString();
-				m_EnergyBarL.fillAmount = m_energyLeft / 100f;
-				m_EnergyBarR.fillAmount = m_energyLeft / 100f;
-			}
+            m_Energy.text = energyLeftInt.ToString();
+            m_EnergyBarL.fillAmount = energyLeftInt / 100f;
+            m_EnergyBarR.fillAmount = energyLeftInt / 100f;
         }
         
     }

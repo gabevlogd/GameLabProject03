@@ -10,7 +10,7 @@ public class WeaponPickUp : BasePickUp
 
     protected override void AddToInventory()
     {
-        PlayerInventory.m_Instance.m_UnlockedWeapon[m_WeaponID] = true;
+        PlayerInventory.m_Instance.m_Weapons[m_WeaponID].m_Unlocked = true;
     }
 
 }

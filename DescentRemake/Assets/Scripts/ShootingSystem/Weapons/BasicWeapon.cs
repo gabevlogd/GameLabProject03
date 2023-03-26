@@ -27,6 +27,7 @@ public abstract class BasicWeapon : MonoBehaviour
     [Range(1f,5f)]
     public int m_BulletsPerShot;
     public float m_TimeBetweenBullets;
+    public bool m_Unlocked { get; set; }
     #endregion
 
     #region Protected fields:
@@ -48,6 +49,7 @@ public abstract class BasicWeapon : MonoBehaviour
     protected virtual void Awake()
     {
         ResetShoot();
+        
     }
 
     protected virtual void Start()

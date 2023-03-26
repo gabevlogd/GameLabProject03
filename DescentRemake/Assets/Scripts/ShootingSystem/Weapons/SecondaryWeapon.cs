@@ -7,6 +7,7 @@ public class SecondaryWeapon : BasicWeapon
     public bool m_AllowButtonHold;
     public KeyCode m_KeyToShoot;
     public int m_MagazineCapacity;
+    public int m_StartingAmmo;
 
 
     protected override void GetInput()
@@ -18,7 +19,8 @@ public class SecondaryWeapon : BasicWeapon
     protected override void Initialize()
     {
         base.Initialize();
-        m_BulletsLeft = m_MagazineCapacity;
+        //Debug.Log("initialize: " + m_WeaponName);
+        if (m_BulletsLeft == 0) m_BulletsLeft = m_StartingAmmo;
 
         
     }

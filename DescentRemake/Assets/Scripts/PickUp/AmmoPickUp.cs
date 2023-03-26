@@ -11,6 +11,12 @@ public class AmmoPickUp : BasePickUp
 
     protected override void AddToInventory()
     {
-        PlayerInventory.m_Instance.m_AmmoCounters[m_WeaponID] += m_AmmosToAdd;
+        SecondaryWeapon weapon = PlayerInventory.m_Instance.m_Weapons[m_WeaponID] as SecondaryWeapon;
+
+        if (weapon.m_MagazineCapacity - weapon.m_BulletsLeft >= m_AmmosToAdd) weapon.m_BulletsLeft += m_AmmosToAdd;
+        else weapon.m_BulletsLeft = weapon.m_MagazineCapacity;
+
+        //Debug.Log(weapon.m_WeaponName + ": " + weapon.m_BulletsLeft);
+
     }
 }

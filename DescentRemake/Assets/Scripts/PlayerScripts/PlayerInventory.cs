@@ -17,8 +17,6 @@ public class PlayerInventory : MonoBehaviour
 
     public BasicWeapon[] m_WeaponsPrefabs;
     public Dictionary<int, BasicWeapon> m_Weapons;
-    public Dictionary<int, int> m_AmmoCounters;
-    public Dictionary<int, bool> m_UnlockedWeapon;
 
     public Transform m_Player;
     public Transform m_WeaponsDepot;
@@ -50,8 +48,6 @@ public class PlayerInventory : MonoBehaviour
     {
         m_Instance = this;
         m_Weapons = new Dictionary<int, BasicWeapon>();
-        m_AmmoCounters = new Dictionary<int, int>();
-        m_UnlockedWeapon = new Dictionary<int, bool>();
         m_Healt = m_DefaultHealt;
         m_Energy = m_DefaultEnergy;
         m_Lives = m_DefaultLives;
@@ -66,18 +62,7 @@ public class PlayerInventory : MonoBehaviour
             m_Weapons[weapon.m_WeaponID] = Instantiate(weapon, m_WeaponsDepot);
             m_Weapons[weapon.m_WeaponID].gameObject.SetActive(false);
 
-            m_UnlockedWeapon.Add(weapon.m_WeaponID, false);
-        }
-
-        //Initialize the AmmoCounters dictionary
-        foreach(BasicWeapon weapon in m_WeaponsPrefabs)
-        {
-            //if the weapon is primary does not use ammo but energy so continue
-            if (m_Weapons[weapon.m_WeaponID].m_WeaponType == WeaponType.Primary) continue;
-
-            //Pass to the ammo dictionary the number of ammo associated to the weapon ID
-            SecondaryWeapon secondaryWeapon = m_Weapons[weapon.m_WeaponID] as SecondaryWeapon;
-            m_AmmoCounters.Add(weapon.m_WeaponID, secondaryWeapon.m_MagazineCapacity);
+            weapon.m_Unlocked = false;
         }
 
         //equips the first two weapons of the game
@@ -85,13 +70,13 @@ public class PlayerInventory : MonoBehaviour
         m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].transform.SetParent(m_Player, false);
         m_primaryToEquip = m_Weapons[m_WeaponsPrefabs[0].m_WeaponID];
         m_LastPrimaryEquiped = m_primaryToEquip;
-        m_UnlockedWeapon[m_WeaponsPrefabs[0].m_WeaponID] = true;
+        m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].m_Unlocked = true;
 
         m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].gameObject.SetActive(true);
         m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].transform.SetParent(m_Player, false);
         m_secondaryToEquip = m_Weapons[m_WeaponsPrefabs[2].m_WeaponID];
         m_LastSecondaryEquiped = m_secondaryToEquip;
-        m_UnlockedWeapon[m_WeaponsPrefabs[2].m_WeaponID] = true;
+        m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].m_Unlocked = true;
     }
 
     /// <summary>
@@ -107,11 +92,11 @@ public class PlayerInventory : MonoBehaviour
             switch (PressedKey.keyCode)
             {
                 case KeyCode.Alpha1:
-                    if (m_UnlockedWeapon[m_WeaponsPrefabs[0].m_WeaponID] == false) break; //Check if the selected weapon is unlocked
+                    if (m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].m_Unlocked == false) break; //Check if the selected weapon is unlocked
                     m_primaryToEquip = m_WeaponsPrefabs[0];
                     break;
                 case KeyCode.Alpha2:
-                    if (m_UnlockedWeapon[m_WeaponsPrefabs[1].m_WeaponID] == false) break;
+                    if (m_Weapons[m_WeaponsPrefabs[1].m_WeaponID].m_Unlocked == false) break;
                     m_primaryToEquip = m_WeaponsPrefabs[1];
                     break;
                 //case KeyCode.Alpha3:
@@ -119,11 +104,11 @@ public class PlayerInventory : MonoBehaviour
                 //    m_primaryToEquip = m_WeaponsPrefabs[2];
                 //    break;
                 case KeyCode.Alpha5:
-                    if (m_UnlockedWeapon[m_WeaponsPrefabs[2].m_WeaponID] == false) break;
+                    if (m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].m_Unlocked == false) break;
                     m_secondaryToEquip = m_WeaponsPrefabs[2];
                     break;
                 case KeyCode.Alpha6:
-                    if (m_UnlockedWeapon[m_WeaponsPrefabs[3].m_WeaponID] == false) break;
+                    if (m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].m_BulletsLeft <= 0) break;
                     m_secondaryToEquip = m_WeaponsPrefabs[3];
                     break;
                     //case KeyCode.Alpha7:
