@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public int m_LifePointToAdd;
+    public int m_HealtPointToAdd;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +12,7 @@ public class PowerUp : MonoBehaviour
         {
             if (player.m_Stats.m_Healt < player.m_Stats.m_DefaultEnergy)
             {
-                if (player.m_Stats.m_DefaultEnergy - player.m_Stats.m_Healt >= m_LifePointToAdd) player.m_Stats.m_Healt += m_LifePointToAdd;
+                if (player.m_Stats.m_DefaultEnergy - player.m_Stats.m_Healt >= m_HealtPointToAdd) player.m_Stats.m_Healt += m_HealtPointToAdd;
                 else player.m_Stats.m_Healt = player.m_Stats.m_DefaultEnergy;
                 Debug.Log("Life increased");
                 Destroy(gameObject);
