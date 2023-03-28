@@ -14,7 +14,7 @@ public abstract class AIMovementBase : MonoBehaviour
     public bool m_PlayerInSight { get; set; }
 
     protected float m_distanceFromPlayer;
-    public float m_changeDirectionTimer;
+    protected float m_changeDirectionTimer;
 
     protected enum MovementState { idle, detecting, combat, repositioning };
     protected MovementState m_movementState;

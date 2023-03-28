@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class AITypeOne : AIMovementBase
 {
-    public Vector3 m_randomAxis = Vector3.up;
+    public float m_RotateAroundPlayerSpeed;
+    protected Vector3 m_randomAxis = Vector3.up;
+
+    protected void OnCollisionEnter(Collision collision)
+    {
+        m_randomAxis *= -1;
+    }
 
     protected override void DetectingBehaviour()
     {
@@ -57,15 +63,15 @@ public class AITypeOne : AIMovementBase
     /// <summary>
     /// The movement pattern of this type of enemy
     /// </summary>
-    private void CombatMovementPattern()
+    protected virtual void CombatMovementPattern()
     {
         //Rotate around player randomly - start
         if (ChangeDirectionCondition())
         {
-            Debug.Log("ChangeDirection");
-            m_randomAxis = RandomWorldAxis() * RandomSign();
+            m_randomAxis = WorldAxis() * RandomSign();
+            //Debug.Log("ChangeDirection: " + m_randomAxis);
         }
-        else transform.RotateAround(m_Player.position, m_randomAxis.normalized, 20f * Time.deltaTime);
+        else transform.RotateAround(m_Player.position, m_randomAxis, m_RotateAroundPlayerSpeed * Time.deltaTime);
         //Rotate around player randomly - end
 
 
@@ -87,10 +93,10 @@ public class AITypeOne : AIMovementBase
 
 
     /// <summary>
-    /// Returns a random world axis based on enemy position
+    /// Returns a world axis based on enemy position
     /// </summary>
-    /// <returns>Random world axis</returns>
-    private Vector3 RandomWorldAxis()
+    /// <returns>World axis</returns>
+    protected virtual Vector3 WorldAxis()
     {
         if (Mathf.Abs(transform.position.z - m_Player.position.z) >= m_InnerCombatDistance) //if the enemy is on the z axis of the world
         {
@@ -117,7 +123,7 @@ public class AITypeOne : AIMovementBase
     /// <summary>
     /// </summary>
     /// <returns>true if the enemy is in a legal positions to change movement direction</returns>
-    private bool ChangeDirectionCondition()
+    protected virtual bool ChangeDirectionCondition()
     {
 
         if(m_changeDirectionTimer > 0)
@@ -160,46 +166,10 @@ public class AITypeOne : AIMovementBase
     /// <summary>
     /// </summary>
     /// <returns>return randomly 1 or -1</returns>
-    private int RandomSign()
+    protected int RandomSign()
     {
         return Random.value < .5 ? 1 : -1;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ///// <summary>
-    ///// makes the enemy moves towards the player
-    ///// </summary>
-    //private void MoveTowardsPlayer()
-    //{
-    //    transform.position = Vector3.MoveTowards(transform.position, m_Player.position, m_Speed * Time.deltaTime);
-    //}
-
-    ///// <summary>
-    ///// makes the enemy look at the player
-    ///// </summary>
-    ///// <param name="direction"></param>
-    //private void LookAtPlayer(Vector3 direction)
-    //{
-    //    Quaternion targetRotation = Quaternion.LookRotation(direction);
-    //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_AngularSpeed * Time.deltaTime);
-    //}
 }
