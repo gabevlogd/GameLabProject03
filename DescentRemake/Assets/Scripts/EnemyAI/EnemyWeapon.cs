@@ -5,16 +5,12 @@ using UnityEngine;
 public class EnemyWeapon : BasicWeapon
 {
 
-    EnemyShootingSystem m_shootingSystem;
+    AIMovementBase m_movementBaseData;
 
-    protected override void GetInput()
-    {
-        m_shooting = m_shootingSystem.m_isShooting;
-    }
 
     protected override void Start()
     {
-        m_shootingSystem = GetComponentInParent<EnemyShootingSystem>();
+        m_movementBaseData = GetComponentInParent<AIMovementBase>();
         base.Start();
     }
 
@@ -22,6 +18,11 @@ public class EnemyWeapon : BasicWeapon
     {
         GetInput();
         if (m_shooting && m_readyToShoot) StartCoroutine(Shoot());
+    }
+
+    protected override void GetInput()
+    {
+        m_shooting = PlayerInSight();
     }
 
     protected override IEnumerator Shoot()
@@ -40,4 +41,17 @@ public class EnemyWeapon : BasicWeapon
 
         if (m_shooting) StartCoroutine(Shoot());
     }
+
+    private bool PlayerInSight()
+    {
+        Vector3 direction = m_movementBaseData.m_Player.position - transform.position;
+        RaycastHit hitInfo;
+        Physics.Raycast(transform.position, direction, out hitInfo, m_movementBaseData.m_DetectionDistance);
+
+        if (hitInfo.collider != null && hitInfo.collider.gameObject.transform == m_movementBaseData.m_Player.transform) return true;
+
+        return false;
+
+    }
+
 }

@@ -25,6 +25,7 @@ public abstract class AIMovementBase : MonoBehaviour
 
     protected void Awake()
     {
+        m_Player = FindObjectOfType<PlayerMovement>().transform;
         m_changeDirectionTimer = m_ChangeDirectionTimer;
         m_movementBehaviour = IdleBehaviour;
     }
