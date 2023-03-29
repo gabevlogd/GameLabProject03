@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_MaxEnergy: 200
   m_DefaultHealt: 100
   m_MaxHealt: 200
-  m_DefaultLives: 5
+  m_DefaultLives: 1
   m_MaxLives: 10
   m_Energy: 100
   m_Healt: 100
@@ -3570,7 +3570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423918071321188615, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.704
+      value: 7.355
       objectReference: {fileID: 0}
     - target: {fileID: 4423918071321188615, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3578,7 +3578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423918071321188615, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.443
+      value: -18.795
       objectReference: {fileID: 0}
     - target: {fileID: 4423918071321188615, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3596,9 +3596,9 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4423918072740269110, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
-      propertyPath: field of view
-      value: 90
+    - target: {fileID: 4423918072740269111, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
+      propertyPath: m_DistanceFromCenterZ
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6895488551140003948, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
       propertyPath: m_MiniMap

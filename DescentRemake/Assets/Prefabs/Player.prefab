@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Stats: {fileID: 0}
   m_PlayerUI: {fileID: 0}
+  m_AmmoDropPrefab: {fileID: 7153779138011202582, guid: 42a360326f4d5e54ebc70c139e655860, type: 3}
 --- !u!1 &4423918072740269107
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0

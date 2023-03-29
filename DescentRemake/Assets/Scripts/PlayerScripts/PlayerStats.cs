@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
     [HideInInspector]
     public PlayerInventory m_Stats;
     public GameObject m_PlayerUI;
+    public GameObject m_AmmoDropPrefab;
     private void Awake()
     {
         m_Stats = PlayerInventory.m_Instance;
@@ -41,13 +42,20 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
                 Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
-            else RespawnPlayer();
+            else
+            {
+                m_Stats.m_Lives--;
+                RespawnPlayer();
+            }
         }
         
     }
 
     private void RespawnPlayer()
     {
+        Vector3 dropAmmoSpawnPointPosition = transform.position;
+        Quaternion dropAmmoSpawnPointRotation = transform.rotation;
+
         //reset position and rotation
         transform.position = m_Stats.m_SpawnPoint.position;
         transform.rotation = m_Stats.m_SpawnPoint.rotation;
@@ -55,6 +63,9 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
         //reset player stats
         m_Stats.m_Healt = m_Stats.m_DefaultHealt;
         m_Stats.m_Energy = m_Stats.m_DefaultEnergy;
+
+        //drop all ammo
+        Instantiate(m_AmmoDropPrefab, dropAmmoSpawnPointPosition, dropAmmoSpawnPointRotation);
     }
 
 
