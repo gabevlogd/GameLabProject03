@@ -16,9 +16,7 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 
     private void Update()
     {
-        //if (m_Stats.m_Healt <= 0) GetDestroyed();
-        //CheckEndGameCondition();
-        //if (Input.GetKeyDown(KeyCode.Tab)) ShowOrHideMap();
+        CheckEndGameCondition();
     }
 
     public void GetDamage(int Damage = 0) 
@@ -37,10 +35,26 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
     {
         if (m_Stats.m_Healt <= 0)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (m_Stats.m_Lives <= 0)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else RespawnPlayer();
         }
+        
+    }
+
+    private void RespawnPlayer()
+    {
+        //reset position and rotation
+        transform.position = m_Stats.m_SpawnPoint.position;
+        transform.rotation = m_Stats.m_SpawnPoint.rotation;
+
+        //reset player stats
+        m_Stats.m_Healt = m_Stats.m_DefaultHealt;
+        m_Stats.m_Energy = m_Stats.m_DefaultEnergy;
     }
 
 
