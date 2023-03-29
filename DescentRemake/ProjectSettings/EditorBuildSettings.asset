@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StartingScene.unity
     guid: 87e595c767f713b48a7943b47372eccc
   - enabled: 1
-    path: Assets/Scenes/MapGen.unity
-    guid: 791584f08662dc444bdc56f253bea401
+    path: Assets/Scenes/LevelOne.unity
+    guid: b24aaa71a508fcf4dad604c6533ffd2b
   - enabled: 1
     path: Assets/Scenes/EndingScene.unity
     guid: 84cb509bfe3daf548965d22999d9f3ef
+  - enabled: 0
+    path: Assets/Scenes/MapGen.unity
+    guid: 791584f08662dc444bdc56f253bea401
   m_configObjects: {}
