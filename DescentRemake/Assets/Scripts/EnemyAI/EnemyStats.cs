@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
 {
     public int m_LifePoint;
+    public ParticleSystem m_ExplosionEffect;
 
     private void Update()
     {
@@ -19,7 +20,7 @@ public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
 
     public void GetDestroyed(int waitTime = 0)
     {
-        PlayerInventory.m_Instance.m_Score++;
+        Instantiate(m_ExplosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject, waitTime);
     } 
 }

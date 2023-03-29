@@ -872,6 +872,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2498783916292969573, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2498783916390864482, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
       propertyPath: m_Name
       value: Map_01 Complete
@@ -1643,7 +1647,7 @@ MonoBehaviour:
   m_MaxEnergy: 200
   m_DefaultHealt: 100
   m_MaxHealt: 200
-  m_DefaultLives: 5
+  m_DefaultLives: 1
   m_MaxLives: 10
   m_Energy: 100
   m_Healt: 100
@@ -1775,7 +1779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440744314}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 19.952, y: 0.927, z: 0.103}
+  m_LocalPosition: {x: 19.952, y: 27.075, z: 0.103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3518,6 +3522,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4423918071321188615, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
   m_PrefabInstance: {fileID: 2112593325}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2112593327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4423918072740269107, guid: b5dc4b6aea83cb841bdd530f5e35f436, type: 3}
+  m_PrefabInstance: {fileID: 2112593325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2112593328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112593327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &2129138274
 GameObject:
   m_ObjectHideFlags: 0

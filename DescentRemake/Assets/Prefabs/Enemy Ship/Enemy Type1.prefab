@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LifePoint: 15
+  m_ExplosionEffect: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!114 &5395217647640479584
 MonoBehaviour:
   m_ObjectHideFlags: 0
