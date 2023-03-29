@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyWeapon : BasicWeapon
 {
 
-    AIMovementBase m_movementBaseData;
+    protected AIMovementBase m_movementBaseData;
 
 
     protected override void Start()
