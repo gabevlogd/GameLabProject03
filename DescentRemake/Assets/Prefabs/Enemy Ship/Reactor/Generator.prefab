@@ -381,8 +381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
-  m_DetectionDistance: 30
-  m_OuterCombatDistance: 30
+  m_DetectionDistance: 20
+  m_OuterCombatDistance: 20
   m_InnerCombatDistance: 0
   m_Speed: 0
   m_AngularSpeed: 0

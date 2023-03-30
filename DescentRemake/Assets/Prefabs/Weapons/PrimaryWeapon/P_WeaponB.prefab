@@ -110,12 +110,12 @@ MonoBehaviour:
   m_FirePointsParent: {fileID: 8977892885608952294}
   m_FirePointsPositions:
   - {x: 0, y: 0.05, z: 0}
-  m_WeaponName: PrimaryB
+  m_WeaponName: Vulcan
   m_WeaponID: 1
   m_WeaponType: 0
   m_FireType: 0
   m_FirePointsRotation: 0
-  m_BulletSpeed: 60
+  m_BulletSpeed: 25
   m_TimeBetweenShots: 0.1
   m_BulletsPerShot: 1
   m_TimeBetweenBullets: 0

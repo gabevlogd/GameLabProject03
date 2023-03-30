@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
-  m_DetectionDistance: 30
+  m_DetectionDistance: 15
   m_OuterCombatDistance: 5
   m_InnerCombatDistance: 3
   m_Speed: 0

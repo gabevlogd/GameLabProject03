@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3874408134410689996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.16}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 7221275751503303798}
   - {fileID: 2141081766435029774}
@@ -173,11 +173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
-  m_DetectionDistance: 30
+  m_DetectionDistance: 15
   m_OuterCombatDistance: 5
   m_InnerCombatDistance: 3
-  m_Speed: 5
-  m_AngularSpeed: 3
+  m_Speed: 3
+  m_AngularSpeed: 1
   m_ChangeDirectionTimer: 5
   m_RotateAroundPlayerSpeed: 20
 --- !u!1001 &921951219387387099

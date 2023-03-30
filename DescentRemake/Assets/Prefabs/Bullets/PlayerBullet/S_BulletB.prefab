@@ -84,7 +84,7 @@ MonoBehaviour:
   m_BulletType: 2
   m_DamageType: 1
   m_HomingMissilePrecision: 2
-  m_DamageRange: 10
+  m_DamageRange: 1
 --- !u!1 &5677329169412444152
 GameObject:
   m_ObjectHideFlags: 0
