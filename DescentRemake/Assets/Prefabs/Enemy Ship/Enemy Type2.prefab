@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2804802669375783047
 Transform:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3874408134410689996}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -7429129624207437188, guid: 6278ce5cf7e3d5a40b9c8d54b2c457ed, type: 3}
 --- !u!23 &3874408134410689986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84882d67c139ce4429bc815247e09043, type: 2}
+  - {fileID: 2100000, guid: 47b97d818839c1d47921b9d8ed30c5cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,7 +284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LifePoint: 24
-  m_ExplosionEffect: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!1 &4705895785652509776
 GameObject:
   m_ObjectHideFlags: 0
