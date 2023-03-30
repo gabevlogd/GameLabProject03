@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public PlayerInventory m_Stats;
     public GameObject m_AmmoDropPrefab;
+    public GameObject m_MiniMapController;
 
     public GameObject m_PauseUI, m_StartingUI, m_EndingUI, m_HUD, m_MiniMapUI; 
 
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab) && !m_PauseUI.activeInHierarchy)
         {
+            m_MiniMapController.SetActive(m_MiniMapController.activeInHierarchy ^ true);
             ShowOrHideUI(m_MiniMapUI);
             return;
         }

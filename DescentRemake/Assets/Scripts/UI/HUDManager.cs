@@ -9,6 +9,7 @@ public class HUDManager : MonoBehaviour
     public Text m_Healt;
     public Text m_Energy;
     public Text m_Score;
+    public Text m_Lives;
     public Text m_PrimaryWeapon;
     public Text m_SecondaryWeapon;
     public Text m_SecondaryAmmo;
@@ -23,7 +24,8 @@ public class HUDManager : MonoBehaviour
 	public Sprite[] m_WeaponSpritesSheet;
 
     private int m_score;
-    private float m_energyLeft;
+    private int m_lives;
+    private float m_energy;
     private float m_healt;
     private BasicWeapon m_lastSecondaryEquiped;
     private BasicWeapon m_lastPrimaryEquiped;
@@ -47,6 +49,7 @@ public class HUDManager : MonoBehaviour
         UpdatePrimaryWeaponOnUI();
         UpdateSecondaryWeaponOnUI();
         UpdateAmmoOnUI();
+        UpdateLivesOnUI();
     }
 
     /// <summary>
@@ -56,10 +59,10 @@ public class HUDManager : MonoBehaviour
     {
         m_score = m_playerInventory.m_Score;
         m_healt = m_playerInventory.m_Healt;
-        m_energyLeft = m_playerInventory.m_Energy;
+        m_energy = m_playerInventory.m_Energy;
         m_Score.text = "Score: " + m_score.ToString();
         m_Healt.text = m_healt.ToString();
-        m_Energy.text = m_energyLeft.ToString();
+        m_Energy.text = m_energy.ToString();
 
         m_CurrentPrimaryEquiped = m_playerInventory.m_Weapons[m_playerInventory.m_LastPrimaryEquiped.m_WeaponID];
         m_PrimaryWeapon.text = m_CurrentPrimaryEquiped.m_WeaponName;
@@ -97,18 +100,30 @@ public class HUDManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Updates the value of lives on UI
+    /// </summary>
+    private void UpdateLivesOnUI()
+    {
+        if (m_lives != m_playerInventory.m_Lives)
+        {
+            m_lives = (int)m_playerInventory.m_Lives;
+            m_Lives.text = m_lives.ToString();
+        }
+    }
+
+    /// <summary>
     /// Update the value of energy on the UI
     /// </summary>
     private void UpdateEnergyOnUI()
     {
-        if (m_energyLeft != m_playerInventory.m_Energy)
+        if (m_energy != m_playerInventory.m_Energy)
         {
-            m_energyLeft = m_playerInventory.m_Energy;
+            m_energy = m_playerInventory.m_Energy;
 
-            int energyLeftInt = (int)m_energyLeft;
+            int energyLeftInt = (int)m_energy;
             m_Energy.text = energyLeftInt.ToString();
-		    m_EnergyBarL.fillAmount = m_energyLeft / 100f;
-			m_EnergyBarR.fillAmount = m_energyLeft / 100f;
+		    m_EnergyBarL.fillAmount = m_energy / 100f;
+			m_EnergyBarR.fillAmount = m_energy / 100f;
         }
         
     }
