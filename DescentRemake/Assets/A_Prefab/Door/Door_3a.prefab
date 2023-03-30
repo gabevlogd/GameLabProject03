@@ -396,8 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e287ad4f08a1d941a9fc764c349b55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsDestroyable: 1
-  m_NeedsKey: 0
+  m_IsDestroyable: 0
+  m_NeedsKey: 1
   m_DefaultClosingTime: 5
   m_Healt: 0
 --- !u!65 &5791980886024683305

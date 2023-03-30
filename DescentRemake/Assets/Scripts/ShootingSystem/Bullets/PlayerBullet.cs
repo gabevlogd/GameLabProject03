@@ -57,7 +57,7 @@ public class PlayerBullet : BasicBullet
         //sorry for that
         if (target.TryGetComponent(out DoorBehaviours door) && !door.m_IsDestroyable)
         {
-            if (door.m_NeedsKey && PlayerInventory.m_Instance.m_DoorsKey <= 0) return;
+            if (door.m_NeedsKey && PlayerInventory.m_Instance.m_Keys <= 0) return;
             door.OpenDoor();
             return;
         }

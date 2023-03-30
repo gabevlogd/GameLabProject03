@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 
     public void GetDamage(int Damage = 0) 
     {
-        Debug.Log("Player Damaged");
+        //Debug.Log("Player Damaged");
         m_playerStats.m_Healt -= Damage;
     }
 

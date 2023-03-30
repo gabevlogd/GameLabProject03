@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public PlayerInventory m_Stats;
     public GameObject m_AmmoDropPrefab;
 
+    public GameObject m_PauseUI, m_StartingUI, m_EndingUI, m_HUD, m_MiniMapUI; 
+
     private void Awake()
     {
         m_Stats = PlayerInventory.m_Instance;
@@ -16,8 +18,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        CheckUIState();
         CheckGameOverCondition();
     }
+
 
     private void CheckGameOverCondition()
     {
@@ -53,5 +57,25 @@ public class GameManager : MonoBehaviour
 
         //drop all ammo
         Instantiate(m_AmmoDropPrefab, dropAmmoSpawnPointPosition, dropAmmoSpawnPointRotation);
+    }
+
+    private void CheckUIState()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !m_MiniMapUI.activeInHierarchy)
+        {
+            ShowOrHideUI(m_PauseUI);
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Tab) && !m_PauseUI.activeInHierarchy)
+        {
+            ShowOrHideUI(m_MiniMapUI);
+            return;
+        }
+    }
+
+    private void ShowOrHideUI(GameObject UI)
+    {
+        m_Stats.m_PlayerTransform.gameObject.SetActive(m_Stats.m_PlayerTransform.gameObject.activeInHierarchy ^ true);
+        UI.SetActive(UI.activeInHierarchy ^ true);
     }
 }

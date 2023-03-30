@@ -23,7 +23,7 @@ public class EndingUI : MonoBehaviour
 
     private void NewGame()
     {
-        Destroy(PlayerInventory.m_Instance.gameObject);
+        //Destroy(PlayerInventory.m_Instance.gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 

@@ -8,7 +8,7 @@ public class EnemyBullet : BasicBullet
     {
         if (other.TryGetComponent(out EnemyStats mySelf) || other.TryGetComponent(out BasicBullet bullet)) return;
 
-        Debug.Log("OnTriggerEnter");
+        //Debug.Log("OnTriggerEnter");
         if (other.TryGetComponent(out PlayerStats player)) player.GetDamage(m_Damage);
 
         Destroy(gameObject);

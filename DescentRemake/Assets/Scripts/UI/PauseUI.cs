@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
-    public GameObject m_Menu;
     public Button m_NewGameButton;
     public Button m_ExitButton;
 
@@ -21,15 +20,26 @@ public class PauseUI : MonoBehaviour
         m_NewGameButton.onClick.AddListener(NewGame);
         m_ExitButton.onClick.AddListener(Exit);
 
-        m_MouseX.value = 400;
-        m_MouseY.value = 200;
+        m_MouseX.value = PlayerMovement.m_SensX;
+        m_MouseY.value = PlayerMovement.m_SensY;
 
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) CheckMenu();
         UpdateMouseSens();
+    }
+
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void NewGame()
@@ -43,21 +53,6 @@ public class PauseUI : MonoBehaviour
         Application.Quit();
     }
 
-    private void CheckMenu()
-    {
-        if (m_Menu.gameObject.activeInHierarchy)
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            m_Menu.gameObject.SetActive(false);
-        }
-        else
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            m_Menu.gameObject.SetActive(true);
-        }
-    }
 
     private void UpdateMouseSens()
     {

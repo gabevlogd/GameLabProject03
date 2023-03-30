@@ -64,8 +64,12 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
         }
         else
         {
-            if (PlayerInventory.m_Instance.m_DoorsKey >= 1) OpenDoor();
-            else Debug.Log("Needs a key");
+            if (PlayerInventory.m_Instance.m_Keys >= 1) OpenDoor();
+            else
+            {
+                //Debug.Log("Needs a key");
+                HUDManager.m_Instance.ShowMessageOnHUD("DOOR LOCKED: KEY REQUIRED");
+            }
 
             return;
         }

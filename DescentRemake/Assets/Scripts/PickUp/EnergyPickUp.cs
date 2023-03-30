@@ -12,9 +12,14 @@ public class EnergyPickUp : BasePickUp
         {
             if (PlayerInventory.m_Instance.m_MaxEnergy - PlayerInventory.m_Instance.m_Energy >= m_EnergyToAdd) PlayerInventory.m_Instance.m_Energy += m_EnergyToAdd;
             else PlayerInventory.m_Instance.m_Energy = PlayerInventory.m_Instance.m_MaxEnergy;
-            Debug.Log("Energy increased");
+            //Debug.Log("Energy increased");
+            HUDManager.m_Instance.ShowMessageOnHUD("Energy increased");
             Destroy(gameObject);
         }
-        else Debug.Log("Energy is already full");
+        else
+        {
+            //Debug.Log("Energy is already full");
+            HUDManager.m_Instance.ShowMessageOnHUD("Energy is already full");
+        }
     }
 }

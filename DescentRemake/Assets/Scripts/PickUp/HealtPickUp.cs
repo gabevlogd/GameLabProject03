@@ -17,9 +17,14 @@ public class HealtPickUp : BasePickUp
         {
             if (PlayerInventory.m_Instance.m_MaxHealt - PlayerInventory.m_Instance.m_Healt >= m_HealtPointToAdd) PlayerInventory.m_Instance.m_Healt += m_HealtPointToAdd;
             else PlayerInventory.m_Instance.m_Healt = PlayerInventory.m_Instance.m_MaxHealt;
-            Debug.Log("Life increased");
+            //Debug.Log("Life increased");
+            HUDManager.m_Instance.ShowMessageOnHUD("Life increased");
             Destroy(gameObject);
         }
-        else Debug.Log("Healt is already full");
+        else
+        {
+            //Debug.Log("Healt is already full");
+            HUDManager.m_Instance.ShowMessageOnHUD("Healt is already full");
+        }
     }
 }

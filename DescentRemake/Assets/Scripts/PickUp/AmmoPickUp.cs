@@ -18,5 +18,7 @@ public class AmmoPickUp : BasePickUp
 
         //Debug.Log(weapon.m_WeaponName + ": " + weapon.m_BulletsLeft);
 
+        HUDManager.m_Instance.ShowMessageOnHUD(weapon.m_WeaponName + " ammo collected");
+
     }
 }

@@ -28,6 +28,7 @@ public class AmmoDropPickUp : BasePickUp
             if (weapon.m_MagazineCapacity - m_player.m_Weapons[weaponID].m_BulletsLeft >= m_Ammo[i]) m_player.m_Weapons[weaponID].m_BulletsLeft += m_Ammo[i];
             else m_player.m_Weapons[weaponID].m_BulletsLeft = weapon.m_MagazineCapacity;
         }
+        HUDManager.m_Instance.ShowMessageOnHUD("AMMUNITION RECOVERED");
     }
 
     private void EmptyWeaponAmmo()

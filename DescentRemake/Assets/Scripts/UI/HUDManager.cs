@@ -12,6 +12,8 @@ public class HUDManager : MonoBehaviour
     public Text m_PrimaryWeapon;
     public Text m_SecondaryWeapon;
     public Text m_SecondaryAmmo;
+    public Text m_MessageForPlayer;
+    public Text m_Timer;
 	public Image m_EnergyBarL;
 	public Image m_EnergyBarR;
 	public Image m_HealtSprite;
@@ -94,7 +96,6 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Update the value of energy on the UI
     /// </summary>
@@ -146,5 +147,23 @@ public class HUDManager : MonoBehaviour
     private void UpdateAmmoOnUI()
     {
         m_SecondaryAmmo.text = m_CurrentSecondaryEquiped.m_BulletsLeft.ToString();
+    }
+
+    /// <summary>
+    /// Shows a text on hud
+    /// </summary>
+    /// <param name="message">text shown</param>
+    /// <returns></returns>
+    public void ShowMessageOnHUD(string message)
+    {
+        StopCoroutine(RunHUDMessage(message));
+        StartCoroutine(RunHUDMessage(message));
+    }
+    private IEnumerator RunHUDMessage(string message)
+    {
+        m_MessageForPlayer.text = message;
+        m_MessageForPlayer.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        m_MessageForPlayer.gameObject.SetActive(false);
     }
 }

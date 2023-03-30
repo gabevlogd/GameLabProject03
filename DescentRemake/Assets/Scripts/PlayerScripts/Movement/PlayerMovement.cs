@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        m_SensX = 400f;
+        m_SensY = 200f;
         m_mousePosition = Input.mousePosition;
         m_planeNormal = transform.up;
         m_rigidbody = GetComponent<Rigidbody>();
