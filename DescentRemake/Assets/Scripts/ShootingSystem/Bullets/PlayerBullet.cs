@@ -24,8 +24,9 @@ public class PlayerBullet : BasicBullet
         CheckRadarRequest();
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (m_HomingMissileTarget != null) HomingMissileBehaviour();
     }
 
