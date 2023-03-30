@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 8224946902471209869}
   - component: {fileID: 8224946902471209866}
   - component: {fileID: 8224946902471209867}
+  - component: {fileID: 3234285983804122748}
   m_Layer: 0
   m_Name: PU_1xC_Missile
   m_TagString: Untagged
@@ -106,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8224946902471209868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.28401542, y: 0, z: 0, w: 0.95881975}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8224946901101096687}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -33, y: 0, z: 0}
 --- !u!135 &8224946902471209866
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -141,3 +142,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WeaponID: 3
   m_AmmosToAdd: 1
+--- !u!95 &3234285983804122748
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224946902471209868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5e06180a6bf4d84f86004e356aeb5c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

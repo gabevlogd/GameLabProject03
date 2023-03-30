@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7153779138011202583}
   - component: {fileID: 7153779138011202568}
   - component: {fileID: 4442473201402649042}
+  - component: {fileID: 4036247237846667424}
   m_Layer: 0
   m_Name: AmmoDrop
   m_TagString: Untagged
@@ -106,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7153779138011202582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.28401542, y: 0, z: 0, w: 0.95881975}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7153779137982444428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -33, y: 0, z: 0}
 --- !u!135 &7153779138011202568
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -139,3 +140,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f722b61e8eee4046b60e0b033c790a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4036247237846667424
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153779138011202582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2014fe0a12c72bb4b9d01a3c91c95fe0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
