@@ -38,11 +38,11 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
 
     private void InitializeDoor()
     {
-        if (m_IsDestroyable)
-        {
-            m_NeedsKey = false;
-            if (m_Healt == 0) m_Healt = 10; //Random value if user do not sets the Health 
-        }
+        //if (m_IsDestroyable)
+        //{
+        //    m_NeedsKey = false;
+        //    if (m_Healt == 0) m_Healt = 10; //Random value if user do not sets the Health 
+        //}
 
         m_closingTime = m_DefaultClosingTime;
         m_isOpen = false;
@@ -112,15 +112,6 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
 
     public void GetDestroyed(int waitTime = 0)
     {
-        //Run VFX 
-        //m_meshRenderer.forceRenderingOff = true; //Test if it work
-
-        //Temporary
-        m_collider.isTrigger = true;
-        m_animator.SetBool("IsOpen", true);
-        m_isOpen = true;
-        //end 
-
         Debug.Log("Destruction in: " + waitTime + " seconds");
         Destroy(gameObject, waitTime);
     }
