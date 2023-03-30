@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     private void ShowOrHideUI(GameObject UI)
     {
         m_Stats.m_PlayerTransform.gameObject.SetActive(m_Stats.m_PlayerTransform.gameObject.activeInHierarchy ^ true);
+        m_HUD.gameObject.SetActive(m_HUD.gameObject.activeInHierarchy ^ true);
         UI.SetActive(UI.activeInHierarchy ^ true);
     }
 }
