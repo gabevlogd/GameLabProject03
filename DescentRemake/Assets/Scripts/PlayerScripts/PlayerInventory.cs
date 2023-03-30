@@ -18,7 +18,7 @@ public class PlayerInventory : MonoBehaviour
     public BasicWeapon[] m_WeaponsPrefabs;
     public Dictionary<int, BasicWeapon> m_Weapons;
 
-    public Transform m_Player;
+    public Transform m_PlayerTransform;
     public Transform m_WeaponsDepot;
     public Transform m_SpawnPoint;
 
@@ -69,13 +69,13 @@ public class PlayerInventory : MonoBehaviour
 
         //equips the first two weapons of the game
         m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].gameObject.SetActive(true);
-        m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].transform.SetParent(m_Player, false);
+        m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].transform.SetParent(m_PlayerTransform, false);
         m_primaryToEquip = m_Weapons[m_WeaponsPrefabs[0].m_WeaponID];
         m_LastPrimaryEquiped = m_primaryToEquip;
         m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].m_Unlocked = true;
 
         m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].gameObject.SetActive(true);
-        m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].transform.SetParent(m_Player, false);
+        m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].transform.SetParent(m_PlayerTransform, false);
         m_secondaryToEquip = m_Weapons[m_WeaponsPrefabs[2].m_WeaponID];
         m_LastSecondaryEquiped = m_secondaryToEquip;
         m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].m_Unlocked = true;
@@ -148,7 +148,7 @@ public class PlayerInventory : MonoBehaviour
     private void EquipWeapon(int weaponID)
     {
         m_Weapons[weaponID].gameObject.SetActive(true); //set active the weapon to equip
-        m_Weapons[weaponID].transform.SetParent(m_Player, false); //set weapon to equip parent of player
+        m_Weapons[weaponID].transform.SetParent(m_PlayerTransform, false); //set weapon to equip parent of player
 
         //update the last equiped weapon 
         if (m_Weapons[weaponID].m_WeaponType == WeaponType.Primary)

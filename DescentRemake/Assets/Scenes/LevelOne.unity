@@ -712,6 +712,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305005182}
   m_CullTransparentMesh: 1
+--- !u!1 &309653931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 309653933}
+  - component: {fileID: 309653932}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &309653932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309653931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92fcc0d4e6269e449d3fd017131ec4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Stats: {fileID: 0}
+  m_AmmoDropPrefab: {fileID: 7153779138011202582, guid: 42a360326f4d5e54ebc70c139e655860, type: 3}
+--- !u!4 &309653933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309653931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335324688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultEnergy: 100
   m_MaxEnergy: 200
-  m_DefaultHealt: 100
+  m_DefaultHealt: 5
   m_MaxHealt: 200
   m_DefaultLives: 1
   m_MaxLives: 10
@@ -1660,7 +1705,7 @@ MonoBehaviour:
   - {fileID: 7565006922092239022, guid: 48e1355f89b4b6f4991941a90e6319f7, type: 3}
   - {fileID: 3512537819019276840, guid: e04c490ac53f1474e820f0f5c8af7d8b, type: 3}
   - {fileID: -4200291326438404555, guid: 949502d023c045a469ea7179f3cd84f0, type: 3}
-  m_Player: {fileID: 2112593326}
+  m_PlayerTransform: {fileID: 2112593326}
   m_WeaponsDepot: {fileID: 828662497}
   m_SpawnPoint: {fileID: 1440744315}
   m_LastPrimaryEquiped: {fileID: 0}
