@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUI : MonoBehaviour
+public class StartingUI : MonoBehaviour
 {
     public Button m_NewGameButton;
     public Button m_CommandsButton;

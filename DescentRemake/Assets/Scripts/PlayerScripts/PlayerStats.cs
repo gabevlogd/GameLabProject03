@@ -7,7 +7,6 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 {
     [HideInInspector]
     public PlayerInventory m_Stats;
-    public GameObject m_PlayerUI;
     public GameObject m_AmmoDropPrefab;
     private void Awake()
     {

@@ -154,12 +154,12 @@ public class PlayerInventory : MonoBehaviour
         if (m_Weapons[weaponID].m_WeaponType == WeaponType.Primary)
         {
             m_LastPrimaryEquiped = m_Weapons[weaponID];
-            UIManager.m_Instance.m_CurrentPrimaryEquiped = m_Weapons[weaponID]; //updates the primary equipped weapon reference on UI manager
+            HUDManager.m_Instance.m_CurrentPrimaryEquiped = m_Weapons[weaponID]; //updates the primary equipped weapon reference on UI manager
         }
         else
         {
             m_LastSecondaryEquiped = m_Weapons[weaponID];
-            UIManager.m_Instance.m_CurrentSecondaryEquiped = m_Weapons[weaponID]; //updates the secondary equipped weapon reference on UI manager
+            HUDManager.m_Instance.m_CurrentSecondaryEquiped = m_Weapons[weaponID]; //updates the secondary equipped weapon reference on UI manager
         }
     }
 

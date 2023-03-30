@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class HUDManager : MonoBehaviour
 {
-    public static UIManager m_Instance;
+    public static HUDManager m_Instance;
     public Text m_Healt;
     public Text m_Energy;
     public Text m_Score;

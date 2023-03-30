@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class InGameMenu : MonoBehaviour
+public class PauseUI : MonoBehaviour
 {
     public GameObject m_Menu;
     public Button m_NewGameButton;
