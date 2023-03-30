@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -246,17 +246,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 745200599201958253, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1220902793683471979, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3773585
       objectReference: {fileID: 0}
-    - target: {fileID: 2498783916030115072, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1220902793683471979, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3773585
       objectReference: {fileID: 0}
-    - target: {fileID: 2498783916292969573, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1220902793683471979, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3773585
       objectReference: {fileID: 0}
     - target: {fileID: 2498783916390864482, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
       propertyPath: m_Name
@@ -306,37 +306,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3094378231164556453, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 4694465439641007199, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5238562778538552343, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_Name
-      value: LavaFloor
+    - target: {fileID: 9144637066630133527, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3773585
       objectReference: {fileID: 0}
-    - target: {fileID: 5391415717541808264, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 9144637066630133527, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3773585
       objectReference: {fileID: 0}
-    - target: {fileID: 7088398194188449554, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402890680171823831, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402890680171823831, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9415194
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402890680171823831, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.33695891
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402890680171823831, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -39.383
+    - target: {fileID: 9144637066630133527, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3773585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f45a611e2bf8b64696cebe5214deb1e, type: 3}
@@ -1070,7 +1054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &470677286
 Light:
   m_ObjectHideFlags: 0
