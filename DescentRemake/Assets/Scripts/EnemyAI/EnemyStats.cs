@@ -6,6 +6,7 @@ public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
 {
     public int m_LifePoint;
     public ParticleSystem m_ExplosionEffect;
+    public AudioClip m_ExplosionSound;
 
     private void Update()
     {
@@ -21,6 +22,7 @@ public class EnemyStats : MonoBehaviour, IDamageable, IDestroyable
     public void GetDestroyed(int waitTime = 0)
     {
         Instantiate(m_ExplosionEffect, transform.position, Quaternion.identity);
+        SoundManager.Instance.PlayEnemiesSound(m_ExplosionSound);
         Destroy(gameObject, waitTime);
     } 
 }

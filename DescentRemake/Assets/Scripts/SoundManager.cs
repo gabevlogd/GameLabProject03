@@ -10,8 +10,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-	public AudioSource EffectsSource;
-	public AudioSource MusicSource;
+	public AudioSource PlayerEffectsSource;
+    public AudioSource EnemiesEffectsSource;
+    public AudioSource WorldEffectsSource;
+    public AudioSource MusicSource;
 	public static SoundManager Instance = null;
 
 	private void Awake()
@@ -25,10 +27,25 @@ public class SoundManager : MonoBehaviour
 	/// Play a single clip through the sound effects source.
 	/// </summary>
 	/// <param name="clip">AudioClip to play</param>
-	public void Play(AudioClip clip)
+	public void PlayPlayerSound(AudioClip clip)
 	{
-		EffectsSource.clip = clip;
-		if (!EffectsSource.isPlaying) EffectsSource.Play();
+		Debug.Log("Playing: " + clip.name);
+		PlayerEffectsSource.clip = clip;
+		PlayerEffectsSource.Play();
+	}
+
+	public void PlayEnemiesSound(AudioClip clip)
+	{
+		Debug.Log("Playing: " + clip.name);
+		EnemiesEffectsSource.clip = clip;
+		EnemiesEffectsSource.Play();
+	}
+
+	public void PlayWorldSound(AudioClip clip)
+	{
+		Debug.Log("Playing: " + clip.name);
+		WorldEffectsSource.clip = clip;
+		WorldEffectsSource.Play();
 	}
 
 	/// <summary>
@@ -37,6 +54,7 @@ public class SoundManager : MonoBehaviour
 	/// <param name="clip">AudioClip to play</param>
 	public void PlayMusic(AudioClip clip)
 	{
+		Debug.Log("Playing: " + clip.name);
 		MusicSource.clip = clip;
 		MusicSource.Play();
 	}

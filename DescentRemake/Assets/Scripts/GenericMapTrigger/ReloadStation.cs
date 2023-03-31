@@ -7,15 +7,20 @@ public class ReloadStation : MonoBehaviour
     public int m_EnergyToReload;
     public float m_TimeBetweenReload;
 
+    public AudioClip m_ReloadingSound;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent(out PlayerStats player)) return;
+        if (m_ReloadingSound != null) SoundManager.Instance.PlayWorldSound(m_ReloadingSound);
         StartCoroutine(ReloadEnergy());
     }
 
     private void OnTriggerExit(Collider other)
     {
+
         if (!other.TryGetComponent(out PlayerStats player)) return;
+        if (m_ReloadingSound != null) SoundManager.Instance.WorldEffectsSource.Stop();
         StopAllCoroutines();
     }
 

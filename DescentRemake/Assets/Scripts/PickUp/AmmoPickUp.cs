@@ -9,6 +9,7 @@ public class AmmoPickUp : BasePickUp
     [Tooltip("Number of ammos to increase")]
     public int m_AmmosToAdd;
 
+
     protected override void AddToInventory()
     {
         SecondaryWeapon weapon = PlayerInventory.m_Instance.m_Weapons[m_WeaponID] as SecondaryWeapon;
@@ -18,6 +19,7 @@ public class AmmoPickUp : BasePickUp
 
         //Debug.Log(weapon.m_WeaponName + ": " + weapon.m_BulletsLeft);
 
+        if (m_PickUpSound != null) SoundManager.Instance.PlayWorldSound(m_PickUpSound);
         HUDManager.m_Instance.ShowMessageOnHUD(weapon.m_WeaponName + " ammo collected");
 
     }

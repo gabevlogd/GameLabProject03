@@ -85,6 +85,7 @@ MonoBehaviour:
   m_DamageType: 1
   m_HomingMissilePrecision: 2
   m_DamageRange: 1
+  m_BulletSound: {fileID: 8300000, guid: 39dcf7f42cd5e0f41b4556ac9ff91bd5, type: 3}
 --- !u!1 &5677329169412444152
 GameObject:
   m_ObjectHideFlags: 0

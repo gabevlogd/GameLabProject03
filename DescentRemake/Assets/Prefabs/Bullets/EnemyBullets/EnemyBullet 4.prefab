@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_Material: {fileID: 0}
   m_Damage: 5
+  m_BulletSound: {fileID: 8300000, guid: 6a26b3497b192c342a6e678f67f7fa68, type: 3}
 --- !u!1001 &2055144243315119459
 PrefabInstance:
   m_ObjectHideFlags: 0

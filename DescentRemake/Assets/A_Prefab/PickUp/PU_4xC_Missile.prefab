@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WeaponID: 3
   m_AmmosToAdd: 4
+  m_PickUpSound: {fileID: 8300000, guid: e337a26648120ab48be458ac0a95b852, type: 3}
 --- !u!95 &6726577751424023597
 Animator:
   serializedVersion: 3

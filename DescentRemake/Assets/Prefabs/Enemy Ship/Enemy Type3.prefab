@@ -79,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifePoint: 48
   m_ExplosionEffect: {fileID: 198656289721292014, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  m_ExplosionSound: {fileID: 8300000, guid: a1989505cb9b67c438fe57ccf47a0041, type: 3}
 --- !u!114 &1075415556352871739
 MonoBehaviour:
   m_ObjectHideFlags: 0

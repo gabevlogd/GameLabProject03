@@ -10,11 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject m_AmmoDropPrefab;
     public GameObject m_MiniMapController;
 
-    public GameObject m_PauseUI, m_StartingUI, m_EndingUI, m_HUD, m_MiniMapUI; 
+    public GameObject m_PauseUI, m_HUD, m_MiniMapUI;
+
+    public AudioClip m_MusicLevelOne;
 
     private void Awake()
     {
         m_Stats = PlayerInventory.m_Instance;
+        SoundManager.Instance.PlayMusic(m_MusicLevelOne);
     }
 
     private void Update()
@@ -58,6 +61,9 @@ public class GameManager : MonoBehaviour
 
         //drop all ammo
         Instantiate(m_AmmoDropPrefab, dropAmmoSpawnPointPosition, dropAmmoSpawnPointRotation);
+
+        //restart music
+        SoundManager.Instance.PlayMusic(m_MusicLevelOne);
     }
 
     private void CheckUIState()

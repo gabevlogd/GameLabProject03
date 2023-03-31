@@ -14,6 +14,8 @@ public class PlayerBullet : BasicBullet
     public float m_HomingMissilePrecision;
     public float m_DamageRange;
 
+    public AudioClip m_BulletSound;
+
 
     private int m_damageableLayer = 7;
     private Rigidbody m_rigidbody;
@@ -22,6 +24,7 @@ public class PlayerBullet : BasicBullet
     {
         m_rigidbody = GetComponent<Rigidbody>();
         CheckRadarRequest();
+        if (m_BulletSound != null) SoundManager.Instance.PlayPlayerSound(m_BulletSound);
     }
 
     protected override void Update()

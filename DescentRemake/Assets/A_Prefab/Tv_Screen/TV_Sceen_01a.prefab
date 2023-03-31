@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ScreenSprite: {fileID: 629065515152240647}
   m_BorekenScreenSprite: {fileID: 629065515989712027}
+  m_BreakingSound: {fileID: 8300000, guid: c4c9f6ca5a1964049b0866ed4accebe2, type: 3}
 --- !u!65 &7240478939436340142
 BoxCollider:
   m_ObjectHideFlags: 0

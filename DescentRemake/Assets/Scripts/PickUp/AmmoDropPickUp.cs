@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AmmoDropPickUp : BasePickUp
 {
+
     private int[] m_Ammo;
     private PlayerInventory m_player;
 
@@ -28,6 +29,8 @@ public class AmmoDropPickUp : BasePickUp
             if (weapon.m_MagazineCapacity - m_player.m_Weapons[weaponID].m_BulletsLeft >= m_Ammo[i]) m_player.m_Weapons[weaponID].m_BulletsLeft += m_Ammo[i];
             else m_player.m_Weapons[weaponID].m_BulletsLeft = weapon.m_MagazineCapacity;
         }
+
+        if (m_PickUpSound != null) SoundManager.Instance.PlayWorldSound(m_PickUpSound);
         HUDManager.m_Instance.ShowMessageOnHUD("AMMUNITION RECOVERED");
     }
 

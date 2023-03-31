@@ -59,3 +59,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EnergyToReload: 1
   m_TimeBetweenReload: 0.25
+  m_ReloadingSound: {fileID: 8300000, guid: 16a65a7605edd4d40bab452393577208, type: 3}
