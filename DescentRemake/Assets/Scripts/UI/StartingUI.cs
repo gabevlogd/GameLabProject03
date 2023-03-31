@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class StartingUI : MonoBehaviour
 {
+    public GameObject m_MainTab;
+
     public Button m_NewGameButton;
     public Button m_CommandsButton;
+    public Button m_CreditsButton;
     public Button m_ExitButton;
     public Button m_BackButton;
 
     public Image m_CommandsImage;
+    public Image m_CreditsImage;
 
     public AudioClip m_MainMenuMusic;
 
@@ -20,9 +24,11 @@ public class StartingUI : MonoBehaviour
         if (m_MainMenuMusic != null) SoundManager.Instance.PlayMusic(m_MainMenuMusic);
         m_BackButton.gameObject.SetActive(false);
         m_CommandsImage.gameObject.SetActive(false);
+        m_CreditsImage.gameObject.SetActive(false);
 
         m_NewGameButton.onClick.AddListener(NewGame);
-        m_CommandsButton.onClick.AddListener(ShowCommands);
+        m_CommandsButton.onClick.AddListener(() => ShowOrHideTab(m_CommandsImage));
+        m_CreditsButton.onClick.AddListener(() => ShowOrHideTab(m_CreditsImage));
         m_ExitButton.onClick.AddListener(Exit);
         m_BackButton.onClick.AddListener(Back);
     }
@@ -32,15 +38,13 @@ public class StartingUI : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void ShowCommands()
+    private void ShowOrHideTab(Image tabToShowOrHide)
     {
-        m_NewGameButton.gameObject.SetActive(false);
-        m_CommandsButton.gameObject.SetActive(false);
-        m_ExitButton.gameObject.SetActive(false);
-
-        m_BackButton.gameObject.SetActive(true);
-        m_CommandsImage.gameObject.SetActive(true);
+        m_MainTab.gameObject.SetActive(m_MainTab.gameObject.activeInHierarchy ^ true);
+        m_BackButton.gameObject.SetActive(m_BackButton.gameObject.activeInHierarchy ^ true);
+        tabToShowOrHide.gameObject.SetActive(tabToShowOrHide.gameObject.activeInHierarchy ^ true);
     }
+
 
     private void Exit()
     {
@@ -49,11 +53,10 @@ public class StartingUI : MonoBehaviour
 
     private void Back()
     {
-        m_NewGameButton.gameObject.SetActive(true);
-        m_CommandsButton.gameObject.SetActive(true);
-        m_ExitButton.gameObject.SetActive(true);
+        m_MainTab.gameObject.SetActive(m_MainTab.gameObject.activeInHierarchy ^ true);
+        m_BackButton.gameObject.SetActive(m_BackButton.gameObject.activeInHierarchy ^ true);
 
-        m_BackButton.gameObject.SetActive(false);
-        m_CommandsImage.gameObject.SetActive(false);
+        if (m_CreditsImage.gameObject.activeInHierarchy) m_CreditsImage.gameObject.SetActive(m_CreditsImage.gameObject.activeInHierarchy ^ true);
+        else m_CommandsImage.gameObject.SetActive(m_CommandsImage.gameObject.activeInHierarchy ^ true);
     }
 }
