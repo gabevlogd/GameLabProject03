@@ -1,3 +1,9 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * current script's info: class for player movement
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,19 +41,12 @@ public class PlayerMovement : MonoBehaviour
     private float m_yRotation;
 
     private Rigidbody m_rigidbody;
-    /// <summary>
-    /// normal of the reference plane for calculating rotations
-    /// </summary>
-    private Vector3 m_planeNormal;
-    private Vector3 m_mousePosition;
     #endregion
 
     private void Start()
     {
         m_SensX = 400f;
         m_SensY = 200f;
-        m_mousePosition = Input.mousePosition;
-        m_planeNormal = transform.up;
         m_rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -124,42 +123,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsMoving()
     {
         bool keyInput = !Mathf.Approximately(m_horizontalInput, 0f) || !Mathf.Approximately(m_lateralInput, 0f) || !Mathf.Approximately(m_verticalInput, 0f) || !Mathf.Approximately(m_rollInput, 0f);
-        //bool mouseInput = false;
 
-        //if (m_mousePosition != Input.mousePosition)
-        //{
-        //    mouseInput = true;
-        //    m_mousePosition = Input.mousePosition;
-        //}
-        //else mouseInput = false;
-
-        //Debug.Log(mouseInput);
-
-        if (keyInput /*|| mouseInput*/) return true;
+        if (keyInput) return true;
         return false;
     }
 }
-
-
-///Old RotatePlayer (Don't know why so complex, I'm probably stupid)
-//private void RotatePlayer()
-//{
-//    //calculates rotations on x and y axes and saves them in newForward (i.e. calculates the new transform.forward based on player's input)
-//    Quaternion yawPitch = transform.rotation * Quaternion.Euler(m_xRotation, m_yRotation, 0f);
-//    Vector3 newForward = yawPitch * Vector3.forward;
-
-//    //calculates the new local green axis of the player (transform.up) with respect to the normal of the reference plane (m_planeNormal)
-//    float alignment = Vector3.Dot(transform.up, m_planeNormal);
-//    Vector3 referenceUp = Mathf.Sign(alignment) * m_planeNormal;
-//    Vector3 targetUp = Vector3.Lerp(transform.up, referenceUp, alignment * alignment); //[approximate calculation]
-
-//    //new orientation to assign to the player (i.e. new transform.forward and transform.up based on player's input)
-//    Quaternion newOrientation = Quaternion.LookRotation(newForward, targetUp);
-
-//    //adds roll rotation
-//    newOrientation = newOrientation * Quaternion.Euler(0f, 0f, -m_rollSpeed * Time.deltaTime);
-//    //Saves the new reference plane, according to the player's input.
-//    m_planeNormal = newOrientation * Vector3.up;
-
-//    transform.rotation = newOrientation;
-//}

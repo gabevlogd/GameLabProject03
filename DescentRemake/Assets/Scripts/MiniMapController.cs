@@ -1,3 +1,9 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * current script's info: class for mini map rotation
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

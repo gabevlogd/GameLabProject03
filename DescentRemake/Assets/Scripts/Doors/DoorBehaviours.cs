@@ -1,3 +1,9 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * current script's info: script for behaviour of all door of the game
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,12 +45,6 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
 
     private void InitializeDoor()
     {
-        //if (m_IsDestroyable)
-        //{
-        //    m_NeedsKey = false;
-        //    if (m_Healt == 0) m_Healt = 10; //Random value if user do not sets the Health 
-        //}
-
         m_closingTime = m_DefaultClosingTime;
         m_isOpen = false;
     }

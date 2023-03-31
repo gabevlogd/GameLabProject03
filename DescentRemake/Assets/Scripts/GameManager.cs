@@ -1,3 +1,8 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -82,6 +87,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows/hides the passed UI tab 
+    /// </summary>
+    /// <param name="UI">the tab to show/hide</param>
     private void ShowOrHideUI(GameObject UI)
     {
         m_Stats.m_PlayerTransform.gameObject.SetActive(m_Stats.m_PlayerTransform.gameObject.activeInHierarchy ^ true);

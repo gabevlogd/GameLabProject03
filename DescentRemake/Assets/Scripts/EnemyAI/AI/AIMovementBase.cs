@@ -1,3 +1,9 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * current script's info: base class for the movement behaviour of the AI
+ * author: Gabriele Garofalo
+ */
 using System;
 using System.Collections;
 using System.Collections.Generic;

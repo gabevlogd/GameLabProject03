@@ -1,3 +1,9 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * current script's info: base class for all weapons in the game
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,6 +69,9 @@ public abstract class BasicWeapon : MonoBehaviour
         if (m_shooting && m_readyToShoot && m_BulletsLeft > 0) StartCoroutine(Shoot());
     }
 
+    /// <summary>
+    /// gets the trigger input for shooting
+    /// </summary>
     protected abstract void GetInput();
 
     protected virtual void Initialize()
@@ -84,6 +93,7 @@ public abstract class BasicWeapon : MonoBehaviour
         ResetShoot();
     }
 
+
     protected virtual IEnumerator Shoot()
     {
         m_readyToShoot = false;
@@ -101,6 +111,9 @@ public abstract class BasicWeapon : MonoBehaviour
         if (m_shooting && m_BulletsLeft > 0) StartCoroutine(Shoot());
     }
 
+    /// <summary>
+    /// make the weapon ready to shoot again
+    /// </summary>
     protected virtual void ResetShoot()
     {
         //Debug.Log("ResetShoot");

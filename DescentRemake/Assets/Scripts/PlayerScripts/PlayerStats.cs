@@ -1,3 +1,8 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +17,6 @@ public class PlayerStats : MonoBehaviour, IDamageable, IDestroyable
 
     public void GetDamage(int Damage = 0) 
     {
-        //Debug.Log("Player Damaged");
         m_playerStats.m_Healt -= Damage;
     }
 

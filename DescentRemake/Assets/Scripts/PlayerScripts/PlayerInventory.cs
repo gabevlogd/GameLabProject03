@@ -1,3 +1,9 @@
+/*
+ * GameLab 2022/2023
+ * first project: Descent's remake
+ * current script's info: class for player inventory
+ * author: Gabriele Garofalo
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +39,6 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         InitializeInventory();
-        //DontDestroyOnLoad(gameObject);
     }
 
     private void OnGUI()
