@@ -22,6 +22,7 @@ public class PlayerBullet : BasicBullet
     {
         m_rigidbody = GetComponent<Rigidbody>();
         CheckRadarRequest();
+        if (m_BulletSound != null) SoundManager.Instance.PlayPlayerSound(m_BulletSound);
     }
 
     protected override void Update()

@@ -13,6 +13,7 @@ public class EnergyPickUp : BasePickUp
             if (PlayerInventory.m_Instance.m_MaxEnergy - PlayerInventory.m_Instance.m_Energy >= m_EnergyToAdd) PlayerInventory.m_Instance.m_Energy += m_EnergyToAdd;
             else PlayerInventory.m_Instance.m_Energy = PlayerInventory.m_Instance.m_MaxEnergy;
             //Debug.Log("Energy increased");
+            if (m_PickUpSound != null) SoundManager.Instance.PlayWorldSound(m_PickUpSound);
             HUDManager.m_Instance.ShowMessageOnHUD("Energy increased");
             Destroy(gameObject);
         }

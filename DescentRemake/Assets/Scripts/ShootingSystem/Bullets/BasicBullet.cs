@@ -9,6 +9,8 @@ public class BasicBullet : MonoBehaviour
     public Material m_Material;
     public int m_Damage;
 
+    public AudioClip m_BulletSound;
+
     private float m_selfDstructionTimer;
 
     protected virtual void Update()

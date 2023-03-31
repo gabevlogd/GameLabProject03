@@ -18,6 +18,7 @@ public class HealtPickUp : BasePickUp
             if (PlayerInventory.m_Instance.m_MaxHealt - PlayerInventory.m_Instance.m_Healt >= m_HealtPointToAdd) PlayerInventory.m_Instance.m_Healt += m_HealtPointToAdd;
             else PlayerInventory.m_Instance.m_Healt = PlayerInventory.m_Instance.m_MaxHealt;
             //Debug.Log("Life increased");
+            if (m_PickUpSound != null) SoundManager.Instance.PlayWorldSound(m_PickUpSound);
             HUDManager.m_Instance.ShowMessageOnHUD("Life increased");
             Destroy(gameObject);
         }

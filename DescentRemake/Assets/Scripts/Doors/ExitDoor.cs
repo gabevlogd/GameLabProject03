@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ExitDoor : MonoBehaviour
 {
+    public AudioClip m_DoorSound;
+
     private AITypeBoss m_boss;
     private Animator m_animator;
     private float m_endingTimer;
@@ -26,7 +28,12 @@ public class ExitDoor : MonoBehaviour
     {
         if (m_boss == null)
         {
-            if(!m_animator.GetBool("IsOpen")) m_animator.SetBool("IsOpen", true);
+            if(!m_animator.GetBool("IsOpen"))
+            {
+                m_animator.SetBool("IsOpen", true);
+                if (m_DoorSound != null) SoundManager.Instance.PlayWorldSound(m_DoorSound);
+            }
+
             StartEndingTimer();
         }
     }

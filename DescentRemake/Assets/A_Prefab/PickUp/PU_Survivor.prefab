@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf9b5f789df86b4d8c212f644c5b5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PickUpSound: {fileID: 0}
+  m_ScoreToAdd: 1000
 --- !u!1 &5238705265363626254
 GameObject:
   m_ObjectHideFlags: 0

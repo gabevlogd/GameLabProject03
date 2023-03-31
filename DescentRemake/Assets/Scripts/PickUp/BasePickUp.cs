@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class BasePickUp : MonoBehaviour
 {
 
+    public AudioClip m_PickUpSound;
+
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out PlayerMovement player))

@@ -10,7 +10,6 @@ public class AITypeBoss : AIMovementBase
     protected override void CombatBehaviour()
     {
         Debug.Log("CombatState");
-        //m_Weapon.transform.SetParent(ClosestSlotToPlayer(), false);
         m_Weapon.transform.position = ClosestSlotToPlayer();
     }
 

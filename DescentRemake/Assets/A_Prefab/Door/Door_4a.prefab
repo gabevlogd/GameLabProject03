@@ -234,6 +234,7 @@ MonoBehaviour:
   m_NeedsKey: 0
   m_DefaultClosingTime: 5
   m_Healt: 0
+  m_DoorSound: {fileID: 8300000, guid: 7abfba3fb419a7f4f8d8f6e792e66974, type: 3}
 --- !u!65 &5233054843452094860
 BoxCollider:
   m_ObjectHideFlags: 0

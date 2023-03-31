@@ -8,18 +8,23 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public PlayerInventory m_Stats;
     public GameObject m_AmmoDropPrefab;
+    public GameObject m_MiniMapController;
 
-    public GameObject m_PauseUI, m_StartingUI, m_EndingUI, m_HUD, m_MiniMapUI; 
+    public GameObject m_PauseUI, m_HUD, m_MiniMapUI;
+
+    public AudioClip m_MusicLevelOne;
 
     private void Awake()
     {
         m_Stats = PlayerInventory.m_Instance;
+        SoundManager.Instance.PlayMusic(m_MusicLevelOne);
     }
 
     private void Update()
     {
         CheckUIState();
         CheckGameOverCondition();
+        CheckMusicOption();
     }
 
 
@@ -57,6 +62,9 @@ public class GameManager : MonoBehaviour
 
         //drop all ammo
         Instantiate(m_AmmoDropPrefab, dropAmmoSpawnPointPosition, dropAmmoSpawnPointRotation);
+
+        //restart music
+        SoundManager.Instance.PlayMusic(m_MusicLevelOne);
     }
 
     private void CheckUIState()
@@ -68,6 +76,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab) && !m_PauseUI.activeInHierarchy)
         {
+            m_MiniMapController.SetActive(m_MiniMapController.activeInHierarchy ^ true);
             ShowOrHideUI(m_MiniMapUI);
             return;
         }
@@ -76,6 +85,13 @@ public class GameManager : MonoBehaviour
     private void ShowOrHideUI(GameObject UI)
     {
         m_Stats.m_PlayerTransform.gameObject.SetActive(m_Stats.m_PlayerTransform.gameObject.activeInHierarchy ^ true);
+        m_HUD.gameObject.SetActive(m_HUD.gameObject.activeInHierarchy ^ true);
         UI.SetActive(UI.activeInHierarchy ^ true);
+    }
+
+    private void CheckMusicOption()
+    {
+        if (SoundManager.Instance.m_MusicOn && !SoundManager.Instance.MusicSource.isPlaying) SoundManager.Instance.PlayMusic(m_MusicLevelOne);
+        else if (!SoundManager.Instance.m_MusicOn && SoundManager.Instance.MusicSource.isPlaying) SoundManager.Instance.MusicSource.Stop();
     }
 }

@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour
     [HideInInspector]
     public float m_Energy, m_Healt, m_Lives;
     [HideInInspector]
-    public int m_Score, m_Keys, m_Survivors;
+    public int m_Score, m_Keys;
 
     public BasicWeapon[] m_WeaponsPrefabs;
     public Dictionary<int, BasicWeapon> m_Weapons;
@@ -53,7 +53,6 @@ public class PlayerInventory : MonoBehaviour
         m_Lives = m_DefaultLives;
         m_Score = 0;
         m_Keys = 0;
-        m_Survivors = 0;
 
         //initializes the weapons dictionary and put the weapons in the depot 
         foreach(BasicWeapon weapon in m_WeaponsPrefabs)
@@ -92,33 +91,40 @@ public class PlayerInventory : MonoBehaviour
             switch (PressedKey.keyCode)
             {
                 case KeyCode.Alpha1:
-                    if (m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].m_Unlocked == false) break; //Check if the selected weapon is unlocked
+                    if (m_Weapons[m_WeaponsPrefabs[0].m_WeaponID].m_Unlocked == false) //Check if the selected weapon is unlocked
+                    {
+                        HUDManager.m_Instance.ShowMessageOnHUD("WEAPON LOCKED");
+                        break; 
+                    }
                     m_primaryToEquip = m_WeaponsPrefabs[0];
                     break;
+
                 case KeyCode.Alpha2:
-                    if (m_Weapons[m_WeaponsPrefabs[1].m_WeaponID].m_Unlocked == false) break;
+                    if (m_Weapons[m_WeaponsPrefabs[1].m_WeaponID].m_Unlocked == false)
+                    {
+                        HUDManager.m_Instance.ShowMessageOnHUD("WEAPON LOCKED");
+                        break;
+                    }
                     m_primaryToEquip = m_WeaponsPrefabs[1];
                     break;
-                //case KeyCode.Alpha3:
-                //    if (m_UnlockedWeapon[m_WeaponsPrefabs[2].m_WeaponID] == false) break;
-                //    m_primaryToEquip = m_WeaponsPrefabs[2];
-                //    break;
+
                 case KeyCode.Alpha5:
-                    if (m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].m_Unlocked == false) break;
+                    if (m_Weapons[m_WeaponsPrefabs[2].m_WeaponID].m_Unlocked == false)
+                    {
+                        HUDManager.m_Instance.ShowMessageOnHUD("WEAPON LOCKED");
+                        break;
+                    }
                     m_secondaryToEquip = m_WeaponsPrefabs[2];
                     break;
+
                 case KeyCode.Alpha6:
-                    if (m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].m_BulletsLeft <= 0) break;
+                    if (m_Weapons[m_WeaponsPrefabs[3].m_WeaponID].m_BulletsLeft <= 0)
+                    {
+                        HUDManager.m_Instance.ShowMessageOnHUD("NO AMMO AVAILABLE");
+                        break;
+                    }
                     m_secondaryToEquip = m_WeaponsPrefabs[3];
                     break;
-                    //case KeyCode.Alpha7:
-                    //    if (m_UnlockedWeapon[m_WeaponsPrefabs[5].m_WeaponID] == false) break;
-                    //    m_secondaryToEquip = m_WeaponsPrefabs[5];
-                    //    break;
-                    //case KeyCode.Alpha8:
-                    //    if (m_UnlockedWeapon[m_WeaponsPrefabs[6].m_WeaponID] == false) break;
-                    //    m_secondaryToEquip = m_WeaponsPrefabs[6];
-                    //    break;
             }
         }
 

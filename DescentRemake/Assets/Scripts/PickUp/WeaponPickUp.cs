@@ -11,6 +11,7 @@ public class WeaponPickUp : BasePickUp
     protected override void AddToInventory()
     {
         PlayerInventory.m_Instance.m_Weapons[m_WeaponID].m_Unlocked = true;
+        if (m_PickUpSound != null) SoundManager.Instance.PlayWorldSound(m_PickUpSound);
         HUDManager.m_Instance.ShowMessageOnHUD(PlayerInventory.m_Instance.m_Weapons[m_WeaponID].m_WeaponName + " ADDED TO WEAPONS");
     }
 

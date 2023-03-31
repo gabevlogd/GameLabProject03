@@ -14,7 +14,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - MapDots
+  - MiniMap
   - Damageable
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Explosion
+    uniqueID: 449266791
     locked: 0

@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda332b456d7a314ca36b33bb66e3cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PickUpSound: {fileID: 8300000, guid: e337a26648120ab48be458ac0a95b852, type: 3}
   m_WeaponID: 1
 --- !u!95 &1776123830243485343
 Animator:

@@ -9,7 +9,9 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
     public float m_DefaultClosingTime;
     public int m_Healt;
 
-    private MeshRenderer m_meshRenderer;
+    public AudioClip m_DoorSound;
+
+    
     private Animator m_animator;
     private Collider m_collider;
     private bool m_isOpen;
@@ -17,7 +19,6 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
 
     private void Awake()
     {
-        m_meshRenderer = GetComponent<MeshRenderer>();
         m_animator = GetComponent<Animator>();
         m_collider = GetComponent<Collider>();
 
@@ -93,6 +94,7 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
         {
             m_collider.isTrigger = true;
             m_animator.SetBool("IsOpen", true);
+            if (m_DoorSound != null) SoundManager.Instance.PlayWorldSound(m_DoorSound);
             m_isOpen = true;
         }
     }
@@ -100,6 +102,7 @@ public class DoorBehaviours : MonoBehaviour , IDamageable, IDestroyable
     private void CloseDoor()
     {
         m_animator.SetBool("IsOpen", false);
+        if (m_DoorSound != null) SoundManager.Instance.PlayWorldSound(m_DoorSound);
         m_collider.isTrigger = false;
         m_isOpen = false;
     }
