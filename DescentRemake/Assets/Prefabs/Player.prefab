@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4423918071321188608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4423918073322532768}
   - {fileID: 4423918072740269104}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_HorizontalAcceleration: 12
   m_LateralAcceleration: 12
   m_VerticalAcceleration: 12
-  m_RollAcceleration: 2
+  m_RollAcceleration: 3
 --- !u!114 &6895488551140003948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,9 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fd00900a34f8d43b6eb9d76f653e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Stats: {fileID: 0}
-  m_PlayerUI: {fileID: 0}
-  m_AmmoDropPrefab: {fileID: 7153779138011202582, guid: 42a360326f4d5e54ebc70c139e655860, type: 3}
 --- !u!1 &4423918072740269107
 GameObject:
   m_ObjectHideFlags: 0
