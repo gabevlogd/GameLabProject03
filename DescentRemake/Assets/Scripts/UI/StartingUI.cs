@@ -13,8 +13,11 @@ public class StartingUI : MonoBehaviour
 
     public Image m_CommandsImage;
 
+    public AudioClip m_MainMenuMusic;
+
     private void Awake()
     {
+        if (m_MainMenuMusic != null) SoundManager.Instance.PlayMusic(m_MainMenuMusic);
         m_BackButton.gameObject.SetActive(false);
         m_CommandsImage.gameObject.SetActive(false);
 

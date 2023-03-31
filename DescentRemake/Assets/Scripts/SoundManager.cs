@@ -16,18 +16,22 @@ public class SoundManager : MonoBehaviour
     public AudioSource MusicSource;
 	public static SoundManager Instance = null;
 
+	public bool m_MusicOn { get; set; }
+
 	private void Awake()
 	{
 		if (Instance == null) Instance = this;
 		else if (Instance != this) Destroy(gameObject);
+		m_MusicOn = true;
 		DontDestroyOnLoad(gameObject);
 	}
 
-	/// <summary>
-	/// Play a single clip through the sound effects source.
-	/// </summary>
-	/// <param name="clip">AudioClip to play</param>
-	public void PlayPlayerSound(AudioClip clip)
+
+    /// <summary>
+    /// Play a single clip through the sound effects source.
+    /// </summary>
+    /// <param name="clip">AudioClip to play</param>
+    public void PlayPlayerSound(AudioClip clip)
 	{
 		Debug.Log("Playing: " + clip.name);
 		PlayerEffectsSource.clip = clip;
@@ -54,9 +58,9 @@ public class SoundManager : MonoBehaviour
 	/// <param name="clip">AudioClip to play</param>
 	public void PlayMusic(AudioClip clip)
 	{
-		Debug.Log("Playing: " + clip.name);
+		//Debug.Log("Playing: " + clip.name);
 		MusicSource.clip = clip;
-		MusicSource.Play();
+		if (m_MusicOn) MusicSource.Play();
 	}
 
 }

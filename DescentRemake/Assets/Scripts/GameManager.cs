@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         CheckUIState();
         CheckGameOverCondition();
+        CheckMusicOption();
     }
 
 
@@ -86,5 +87,11 @@ public class GameManager : MonoBehaviour
         m_Stats.m_PlayerTransform.gameObject.SetActive(m_Stats.m_PlayerTransform.gameObject.activeInHierarchy ^ true);
         m_HUD.gameObject.SetActive(m_HUD.gameObject.activeInHierarchy ^ true);
         UI.SetActive(UI.activeInHierarchy ^ true);
+    }
+
+    private void CheckMusicOption()
+    {
+        if (SoundManager.Instance.m_MusicOn && !SoundManager.Instance.MusicSource.isPlaying) SoundManager.Instance.PlayMusic(m_MusicLevelOne);
+        else if (!SoundManager.Instance.m_MusicOn && SoundManager.Instance.MusicSource.isPlaying) SoundManager.Instance.MusicSource.Stop();
     }
 }

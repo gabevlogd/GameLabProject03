@@ -14,8 +14,6 @@ public class PlayerBullet : BasicBullet
     public float m_HomingMissilePrecision;
     public float m_DamageRange;
 
-    public AudioClip m_BulletSound;
-
 
     private int m_damageableLayer = 7;
     private Rigidbody m_rigidbody;
